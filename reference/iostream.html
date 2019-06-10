@@ -175,7 +175,7 @@
 <span id="iostream"></span><h1>iostream<a class="headerlink" href="#module-edrixs.iostream" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="edrixs.iostream.write_tensor">
-<code class="descclassname">edrixs.iostream.</code><code class="descname">write_tensor</code><span class="sig-paren">(</span><em>tensor</em>, <em>fname</em>, <em>only_nonzeros=False</em>, <em>tol=1e-10</em>, <em>fmt_int='{:10d}'</em>, <em>fmt_float='{:.15f}'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_tensor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_tensor</code><span class="sig-paren">(</span><em class="sig-param">tensor</em>, <em class="sig-param">fname</em>, <em class="sig-param">only_nonzeros=False</em>, <em class="sig-param">tol=1e-10</em>, <em class="sig-param">fmt_int='{:10d}'</em>, <em class="sig-param">fmt_float='{:.15f}'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write <span class="math notranslate nohighlight">\(n\)</span> -dimension numpy array to file, currently, <span class="math notranslate nohighlight">\(n\)</span> can be 1, 2, 3, 4, 5.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -200,7 +200,7 @@ and only_nonzeros=True.</p>
 
 <dl class="function">
 <dt id="edrixs.iostream.write_emat">
-<code class="descclassname">edrixs.iostream.</code><code class="descname">write_emat</code><span class="sig-paren">(</span><em>emat</em>, <em>fname</em>, <em>tol=1e-12</em>, <em>fmt_int='{:10d}'</em>, <em>fmt_float='{:.15f}'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_emat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_emat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_emat</code><span class="sig-paren">(</span><em class="sig-param">emat</em>, <em class="sig-param">fname</em>, <em class="sig-param">tol=1e-12</em>, <em class="sig-param">fmt_int='{:10d}'</em>, <em class="sig-param">fmt_float='{:.15f}'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_emat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_emat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the nonzeros of the rank-2 hopping matrices to file.
 The first line is the number of nonzeros, and the following lines are the nonzero elements.
 This file will be read by ed.x, xas.x or rixs.x.</p>
@@ -224,7 +224,7 @@ This file will be read by ed.x, xas.x or rixs.x.</p>
 
 <dl class="function">
 <dt id="edrixs.iostream.write_umat">
-<code class="descclassname">edrixs.iostream.</code><code class="descname">write_umat</code><span class="sig-paren">(</span><em>umat</em>, <em>fname</em>, <em>tol=1e-12</em>, <em>fmt_int='{:10d}'</em>, <em>fmt_float='{:.15f}'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_umat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_umat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_umat</code><span class="sig-paren">(</span><em class="sig-param">umat</em>, <em class="sig-param">fname</em>, <em class="sig-param">tol=1e-12</em>, <em class="sig-param">fmt_int='{:10d}'</em>, <em class="sig-param">fmt_float='{:.15f}'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_umat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_umat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the nonzeros of the rank-4 Coulomb U tensor to file.
 The first line is the number of nonzeros, and the following lines are the nonzero elements.
 This file will be read by ed.x, xas.x or rixs.x.</p>
@@ -248,13 +248,13 @@ This file will be read by ed.x, xas.x or rixs.x.</p>
 
 <dl class="function">
 <dt id="edrixs.iostream.write_config">
-<code class="descclassname">edrixs.iostream.</code><code class="descname">write_config</code><span class="sig-paren">(</span><em>directory='.'</em>, <em>ed_solver=1</em>, <em>num_val_orbs=2</em>, <em>num_core_orbs=2</em>, <em>neval=1</em>, <em>nvector=1</em>, <em>ncv=1</em>, <em>idump=True</em>, <em>num_gs=1</em>, <em>maxiter=500</em>, <em>linsys_max=1000</em>, <em>min_ndim=1000</em>, <em>nkryl=500</em>, <em>eigval_tol=1e-08</em>, <em>linsys_tol=1e-10</em>, <em>omega_in=0.0</em>, <em>gamma_in=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_config" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_config</code><span class="sig-paren">(</span><em class="sig-param">directory='.'</em>, <em class="sig-param">ed_solver=1</em>, <em class="sig-param">num_val_orbs=2</em>, <em class="sig-param">num_core_orbs=2</em>, <em class="sig-param">neval=1</em>, <em class="sig-param">nvector=1</em>, <em class="sig-param">ncv=1</em>, <em class="sig-param">idump=True</em>, <em class="sig-param">num_gs=1</em>, <em class="sig-param">maxiter=500</em>, <em class="sig-param">linsys_max=1000</em>, <em class="sig-param">min_ndim=1000</em>, <em class="sig-param">nkryl=500</em>, <em class="sig-param">eigval_tol=1e-08</em>, <em class="sig-param">linsys_tol=1e-10</em>, <em class="sig-param">omega_in=0.0</em>, <em class="sig-param">gamma_in=0.1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write control parameters in config.in file for ed_fsolver.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="edrixs.iostream.read_poles_from_file">
-<code class="descclassname">edrixs.iostream.</code><code class="descname">read_poles_from_file</code><span class="sig-paren">(</span><em>file_list</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#read_poles_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.read_poles_from_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">read_poles_from_file</code><span class="sig-paren">(</span><em class="sig-param">file_list</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#read_poles_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.read_poles_from_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read informations in files xas_poles.n or rixs_poles.n to a dict.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -270,7 +270,7 @@ This file will be read by ed.x, xas.x or rixs.x.</p>
 
 <dl class="function">
 <dt id="edrixs.iostream.dump_poles">
-<code class="descclassname">edrixs.iostream.</code><code class="descname">dump_poles</code><span class="sig-paren">(</span><em>obj</em>, <em>file_name='poles'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#dump_poles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.dump_poles" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">dump_poles</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">file_name='poles'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#dump_poles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.dump_poles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump the objects of poles returned from XAS or RIXS calculations to file for later plotting.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -286,7 +286,7 @@ This file will be read by ed.x, xas.x or rixs.x.</p>
 
 <dl class="function">
 <dt id="edrixs.iostream.load_poles">
-<code class="descclassname">edrixs.iostream.</code><code class="descname">load_poles</code><span class="sig-paren">(</span><em>file_name='poles'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#load_poles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.load_poles" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">load_poles</code><span class="sig-paren">(</span><em class="sig-param">file_name='poles'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#load_poles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.load_poles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the objects of poles from file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

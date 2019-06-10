@@ -149,7 +149,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for edrixs.plot_spectrum</h1><div class="highlight"><pre>
-<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;get_spectra_from_poles&#39;</span><span class="p">,</span> <span class="s1">&#39;plot_spectrum&#39;</span><span class="p">,</span> <span class="s1">&#39;plot_rixs_map&#39;</span><span class="p">]</span>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;get_spectra_from_poles&#39;</span><span class="p">,</span> <span class="s1">&#39;merge_pole_dicts&#39;</span><span class="p">,</span> <span class="s1">&#39;plot_spectrum&#39;</span><span class="p">,</span> <span class="s1">&#39;plot_rixs_map&#39;</span><span class="p">]</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -210,6 +210,38 @@
         <span class="n">spectra</span><span class="p">[:]</span> <span class="o">+=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">tmp_vec</span><span class="p">)</span> <span class="o">*</span> <span class="n">norm</span> <span class="o">*</span> <span class="n">gs_dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">spectra</span></div>
+
+
+<div class="viewcode-block" id="merge_pole_dicts"><a class="viewcode-back" href="../../reference/plot_spectrum.html#edrixs.plot_spectrum.merge_pole_dicts">[docs]</a><span class="k">def</span> <span class="nf">merge_pole_dicts</span><span class="p">(</span><span class="n">list_pole_dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a list of dict of poles, merge them into one dict of poles</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    list_pole_dict:  list of dict</span>
+<span class="sd">        Dict containing information of poles, which are calculated from</span>
+<span class="sd">        xas_fsolver and rixs_fsolver.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    new_pole_dict: dict of poles</span>
+<span class="sd">        New dict of poles.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">new_pole_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;eigval&#39;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s1">&#39;npoles&#39;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s1">&#39;norm&#39;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="n">poles_dict</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">list_pole_dict</span><span class="p">):</span>
+        <span class="n">new_pole_dict</span><span class="p">[</span><span class="s1">&#39;eigval&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">poles_dict</span><span class="p">[</span><span class="s1">&#39;eigval&#39;</span><span class="p">])</span>
+        <span class="n">new_pole_dict</span><span class="p">[</span><span class="s1">&#39;npoles&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">poles_dict</span><span class="p">[</span><span class="s1">&#39;npoles&#39;</span><span class="p">])</span>
+        <span class="n">new_pole_dict</span><span class="p">[</span><span class="s1">&#39;norm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">poles_dict</span><span class="p">[</span><span class="s1">&#39;norm&#39;</span><span class="p">])</span>
+        <span class="n">new_pole_dict</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">poles_dict</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">])</span>
+        <span class="n">new_pole_dict</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">poles_dict</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">new_pole_dict</span></div>
 
 
 <div class="viewcode-block" id="plot_spectrum"><a class="viewcode-back" href="../../reference/plot_spectrum.html#edrixs.plot_spectrum.plot_spectrum">[docs]</a><span class="k">def</span> <span class="nf">plot_spectrum</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="n">omega_mesh</span><span class="p">,</span> <span class="n">gamma_mesh</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="s1">&#39;spectrum.dat&#39;</span><span class="p">,</span>

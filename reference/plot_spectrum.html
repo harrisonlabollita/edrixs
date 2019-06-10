@@ -175,7 +175,7 @@
 <span id="plot-spectrum"></span><h1>plot_spectrum<a class="headerlink" href="#module-edrixs.plot_spectrum" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="edrixs.plot_spectrum.get_spectra_from_poles">
-<code class="descclassname">edrixs.plot_spectrum.</code><code class="descname">get_spectra_from_poles</code><span class="sig-paren">(</span><em>poles_dict</em>, <em>omega_mesh</em>, <em>gamma_mesh</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/plot_spectrum.html#get_spectra_from_poles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.plot_spectrum.get_spectra_from_poles" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.plot_spectrum.</code><code class="sig-name descname">get_spectra_from_poles</code><span class="sig-paren">(</span><em class="sig-param">poles_dict</em>, <em class="sig-param">omega_mesh</em>, <em class="sig-param">gamma_mesh</em>, <em class="sig-param">temperature</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/plot_spectrum.html#get_spectra_from_poles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.plot_spectrum.get_spectra_from_poles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given the dict of poles, calculate XAS or RIXS spectra using continued fraction formula,</p>
 <div class="math notranslate nohighlight">
 \[I(\omega_{i}) =-\frac{1}{\pi}\text{Im} \left[ \frac{1}{x - \alpha_{0} -
@@ -213,8 +213,29 @@ This dict is constructed by <code class="xref py py-func docutils literal notran
 </dd></dl>
 
 <dl class="function">
+<dt id="edrixs.plot_spectrum.merge_pole_dicts">
+<code class="sig-prename descclassname">edrixs.plot_spectrum.</code><code class="sig-name descname">merge_pole_dicts</code><span class="sig-paren">(</span><em class="sig-param">list_pole_dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/plot_spectrum.html#merge_pole_dicts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.plot_spectrum.merge_pole_dicts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a list of dict of poles, merge them into one dict of poles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>list_pole_dict:  list of dict</strong></dt><dd><p>Dict containing information of poles, which are calculated from
+xas_fsolver and rixs_fsolver.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>new_pole_dict: dict of poles</dt><dd><p>New dict of poles.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="edrixs.plot_spectrum.plot_spectrum">
-<code class="descclassname">edrixs.plot_spectrum.</code><code class="descname">plot_spectrum</code><span class="sig-paren">(</span><em>file_list</em>, <em>omega_mesh</em>, <em>gamma_mesh</em>, <em>T=1.0</em>, <em>fname='spectrum.dat'</em>, <em>om_shift=0.0</em>, <em>fmt_float='{:.15f}'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/plot_spectrum.html#plot_spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.plot_spectrum.plot_spectrum" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.plot_spectrum.</code><code class="sig-name descname">plot_spectrum</code><span class="sig-paren">(</span><em class="sig-param">file_list</em>, <em class="sig-param">omega_mesh</em>, <em class="sig-param">gamma_mesh</em>, <em class="sig-param">T=1.0</em>, <em class="sig-param">fname='spectrum.dat'</em>, <em class="sig-param">om_shift=0.0</em>, <em class="sig-param">fmt_float='{:.15f}'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/plot_spectrum.html#plot_spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.plot_spectrum.plot_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reading poles <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, and calculate
 the spectrum using continued fraction formula,</p>
 <div class="math notranslate nohighlight">
@@ -245,7 +266,7 @@ the spectrum using continued fraction formula,</p>
 
 <dl class="function">
 <dt id="edrixs.plot_spectrum.plot_rixs_map">
-<code class="descclassname">edrixs.plot_spectrum.</code><code class="descname">plot_rixs_map</code><span class="sig-paren">(</span><em>rixs_data</em>, <em>ominc_mesh</em>, <em>eloss_mesh</em>, <em>fname='rixsmap.pdf'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/plot_spectrum.html#plot_rixs_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.plot_spectrum.plot_rixs_map" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.plot_spectrum.</code><code class="sig-name descname">plot_rixs_map</code><span class="sig-paren">(</span><em class="sig-param">rixs_data</em>, <em class="sig-param">ominc_mesh</em>, <em class="sig-param">eloss_mesh</em>, <em class="sig-param">fname='rixsmap.pdf'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/plot_spectrum.html#plot_rixs_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.plot_spectrum.plot_rixs_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given 2d RIXS data, plot a RIXS map and save it to a pdf file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

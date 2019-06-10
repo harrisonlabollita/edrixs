@@ -175,7 +175,7 @@
 <span id="fit-hyb"></span><h1>fit_hyb<a class="headerlink" href="#module-edrixs.fit_hyb" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="edrixs.fit_hyb.fit_func">
-<code class="descclassname">edrixs.fit_hyb.</code><code class="descname">fit_func</code><span class="sig-paren">(</span><em>x</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/fit_hyb.html#fit_func"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.fit_hyb.fit_func" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.fit_hyb.</code><code class="sig-name descname">fit_func</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/fit_hyb.html#fit_func"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.fit_hyb.fit_func" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given frequency <span class="math notranslate nohighlight">\(\omega\)</span>, bath energy level <span class="math notranslate nohighlight">\(\epsilon_{l}\)</span> and
 the hybridization strength <span class="math notranslate nohighlight">\(V_{l}\)</span>,
 return the hybridization function,</p>
@@ -204,7 +204,7 @@ first half is the real part and the second half is the imaginary part.</p>
 
 <dl class="function">
 <dt id="edrixs.fit_hyb.fit_hyb">
-<code class="descclassname">edrixs.fit_hyb.</code><code class="descname">fit_hyb</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>N</em>, <em>p0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/fit_hyb.html#fit_hyb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.fit_hyb.fit_hyb" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.fit_hyb.</code><code class="sig-name descname">fit_hyb</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">N</em>, <em class="sig-param">p0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/fit_hyb.html#fit_hyb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.fit_hyb.fit_hyb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given the hybridization function <span class="math notranslate nohighlight">\(\Delta(\omega)\)</span>,
 call function curve_fit in scipy to
 fit bath energy levels <span class="math notranslate nohighlight">\(\epsilon_{l}\)</span> and
@@ -238,7 +238,7 @@ the second half is <span class="math notranslate nohighlight">\(V_{l}\)</span>.<
 
 <dl class="function">
 <dt id="edrixs.fit_hyb.get_hyb">
-<code class="descclassname">edrixs.fit_hyb.</code><code class="descname">get_hyb</code><span class="sig-paren">(</span><em>x</em>, <em>e</em>, <em>v</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/fit_hyb.html#get_hyb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.fit_hyb.get_hyb" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.fit_hyb.</code><code class="sig-name descname">get_hyb</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">e</em>, <em class="sig-param">v</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/fit_hyb.html#get_hyb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.fit_hyb.get_hyb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given the fitted <span class="math notranslate nohighlight">\(\epsilon_{l}\)</span> and <span class="math notranslate nohighlight">\(V_{l}\)</span>, calcualte the
 hybridization function <span class="math notranslate nohighlight">\(\Delta(\omega)\)</span>,</p>
 <div class="math notranslate nohighlight">
