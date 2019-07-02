@@ -201,7 +201,7 @@ $ sudo apt-get install git autoconf automake ssh wget
 $ sudo apt-get install python3 libpython3-dev python3-pip
 </pre></div>
 </div>
-<p>We will assume <code class="docutils literal notranslate"><span class="pre">python</span></code> pointing to <code class="docutils literal notranslate"><span class="pre">python3.7</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span></code> pointing to <code class="docutils literal notranslate"><span class="pre">pip3.7</span></code> from now on. If this is not the case, you can make links explicitly.
+<p>We will assume <code class="docutils literal notranslate"><span class="pre">python</span></code> pointing to <code class="docutils literal notranslate"><span class="pre">python3.7</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span></code> pointing to <code class="docutils literal notranslate"><span class="pre">pip3.7</span></code> from now on. If this is not the case, you can make links explicitly <a class="footnote-reference brackets" href="#id3" id="id1">1</a> <a class="footnote-reference brackets" href="#id4" id="id2">2</a>.
 Check we are using the expected python and pip:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ which python
 $ python --version
@@ -482,6 +482,14 @@ $ mpirun -np 2 ./run_rixs_fsolver.py
 </div>
 <p>if no errors, the installation is successful.</p>
 <p>All done, enjoy!</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>To change your default python you need to add a line to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> on linux or to your <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code> on OSX. This should be <code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">python='/usr/local/bin/python3'</span></code> where the path is determined by calling <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">python3</span></code> from your terminal.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>To change your default pip you need to add a line to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> on linux or to your <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code> on OSX. This should be <code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">pip='/usr/bin/pip3'</span></code> where the path is determined by calling <code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">pip3</span></code> from your terminal.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
