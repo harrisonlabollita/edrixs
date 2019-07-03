@@ -89,6 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="whatisedrixs.html">What is edrixs?</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-and-use-edrixs-via-anaconda-only-linux-now">Install and use edrixs via Anaconda (only Linux now)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#build-from-source">Build from source</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#ubuntu-linux-18-04">Ubuntu Linux 18.04</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#macos-mojave-osx-10-14">macOS Mojave (OSX 10.14)</a></li>
@@ -186,6 +187,20 @@
 <li><p>mpi4py with same MPI compilers as building edrixs</p></li>
 </ul>
 </div></blockquote>
+</div>
+<div class="section" id="install-and-use-edrixs-via-anaconda-only-linux-now">
+<h2>Install and use edrixs via Anaconda (only Linux now)<a class="headerlink" href="#install-and-use-edrixs-via-anaconda-only-linux-now" title="Permalink to this headline">¶</a></h2>
+<p>A conda package has been built for Linux systems. To use edrixs via Anaconda, you need first to install <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda</a> in your system.
+Then, create and activate a conda env, for example, called <code class="docutils literal notranslate"><span class="pre">edrixs_env</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create --name edrixs_env python=3.7
+$ conda activate edrixs_env
+</pre></div>
+</div>
+<p>Install edrixs by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c lightsource2-tag edrixs
+</pre></div>
+</div>
+<p>where, <a class="reference external" href="https://anaconda.org/lightsource2-tag/">lightsource2-tag</a> is an Anaconda package repository maintained by <a class="reference external" href="https://github.com/NSLS-II/lightsource2-recipes/">DAMA</a> at NSLS-II at  Brookhaven National Laboratory.</p>
 </div>
 <div class="section" id="build-from-source">
 <h2>Build from source<a class="headerlink" href="#build-from-source" title="Permalink to this headline">¶</a></h2>
