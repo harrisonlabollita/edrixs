@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-        <script type="text/javascript" src="../../_static/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script >var copybuttonSkipText = '>>> ';</script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -174,7 +175,7 @@
 <span class="sd">        Hamiltonian :math:`H(r)` from Wannier90.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nwann</span><span class="p">,</span> <span class="n">nrpt</span><span class="p">,</span> <span class="n">irpt0</span><span class="p">,</span> <span class="n">rpts</span><span class="p">,</span> <span class="n">deg_rpt</span><span class="p">,</span> <span class="n">hr</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nwann</span><span class="p">,</span> <span class="n">nrpt</span><span class="p">,</span> <span class="n">irpt0</span><span class="p">,</span> <span class="n">rpts</span><span class="p">,</span> <span class="n">deg_rpt</span><span class="p">,</span> <span class="n">hr</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nwann</span> <span class="o">=</span> <span class="n">nwann</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nrpt</span> <span class="o">=</span> <span class="n">nrpt</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">irpt0</span> <span class="o">=</span> <span class="n">irpt0</span>
@@ -322,7 +323,7 @@
 <span class="sd">        The :math:`k` points.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kpt_type</span><span class="o">=</span><span class="s1">&#39;uni&#39;</span><span class="p">,</span> <span class="n">kbase</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nkpt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kvec</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kpt_type</span><span class="o">=</span><span class="s1">&#39;uni&#39;</span><span class="p">,</span> <span class="n">kbase</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nkpt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kvec</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nkpt</span> <span class="o">=</span> <span class="n">nkpt</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kbase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">kbase</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">kvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">kvec</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
@@ -374,7 +375,7 @@
 <span class="sd">        Length of segments of :math:`k` points line.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kbase</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hsymkpt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">klen</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kbase</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hsymkpt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">klen</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">klen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">klen</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hsymkpt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hsymkpt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
         <span class="n">KVec</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;sym&#39;</span><span class="p">,</span> <span class="n">kbase</span><span class="p">)</span>
@@ -456,7 +457,7 @@
 <span class="sd">        Three numbers defining a uniform grid, for example: :math:`11 \\times 11 \\times 11`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span>
         <span class="n">KVec</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;uni&#39;</span><span class="p">)</span>
 

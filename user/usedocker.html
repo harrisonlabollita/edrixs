@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-        <script type="text/javascript" src="../_static/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script >var copybuttonSkipText = '>>> ';</script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -212,16 +213,17 @@ Play with edrixs ...
 <p><a class="reference external" href="https://jupyter.org/">Jupyter</a>  is a popular way to integrate your code with rich output including plots. You may find this working mode particularly useful for exploratory work, when you try many different approaches to calculations or analysis.</p>
 <ul>
 <li><p>To use this follow the steps above, but pass an additional command <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">8888</span></code> when you launch the container i.e.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -it -p 8888:8888 -u rixs -w /home/rixs -v /dir/on/your/host/os:/home/rixs/data edrixs/edrixs
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -it -p 8888:8888 -u rixs -w /home/rixs -v /dir/on/your/host/os:/home/rixs/data edrixs/edrixs_interactive
 </pre></div>
 </div>
-<p>from within the container initiate the jupyter session as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
-</pre></div>
-</div>
-<p>This will return a URL that you can enter in a browser on your host machine. If you want to use interactive <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/">ipython widgets</a> and <a class="reference external" href="https://github.com/matplotlib/jupyter-matplotlib">plotting</a>, replace <code class="docutils literal notranslate"><span class="pre">edrixs/edrixs</span></code> with <code class="docutils literal notranslate"><span class="pre">edrixs/edrixs_interactive</span></code>. This downloads a (larger) container with the required additional packages.</p>
 </li>
 </ul>
+<p>the container will automatically launch a jupyter session as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  $ jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+
+and will return a URL that you can enter in a browser on your host machine. The larger ``edrixs/edrixs_interactive&#39;&#39; container includes [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/) and [ipympl](https://github.com/matplotlib/jupyter-matplotlib) for interactive computing.
+</pre></div>
+</div>
 </div>
 </div>
 

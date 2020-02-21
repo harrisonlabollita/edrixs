@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-        <script type="text/javascript" src="../../_static/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script >var copybuttonSkipText = '>>> ';</script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -155,7 +156,7 @@
            <span class="s1">&#39;cf_cubic_d&#39;</span><span class="p">,</span> <span class="s1">&#39;cf_tetragonal_d&#39;</span><span class="p">,</span> <span class="s1">&#39;cf_trigonal_t2g&#39;</span><span class="p">]</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">.basis_transform</span> <span class="k">import</span> <span class="n">cb_op</span><span class="p">,</span> <span class="n">tmat_r2c</span>
+<span class="kn">from</span> <span class="nn">.basis_transform</span> <span class="kn">import</span> <span class="n">cb_op</span><span class="p">,</span> <span class="n">tmat_r2c</span>
 
 
 <div class="viewcode-block" id="get_ladd"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_ladd">[docs]</a><span class="k">def</span> <span class="nf">get_ladd</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -725,8 +726,8 @@
 <span class="sd">           [-0.294663+0.643849j, -0.347398+0.541041j, -0.190816+0.220931j]])</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="kn">from</span> <span class="nn">sympy.physics.quantum.spin</span> <span class="k">import</span> <span class="n">Rotation</span>
-    <span class="kn">from</span> <span class="nn">sympy</span> <span class="k">import</span> <span class="n">N</span><span class="p">,</span> <span class="n">S</span>
+    <span class="kn">from</span> <span class="nn">sympy.physics.quantum.spin</span> <span class="kn">import</span> <span class="n">Rotation</span>
+    <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">N</span><span class="p">,</span> <span class="n">S</span>
     <span class="n">ndim</span> <span class="o">=</span> <span class="n">quant_2j</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ndim</span><span class="p">,</span> <span class="n">ndim</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex</span><span class="p">)</span>
     <span class="c1"># For j=1/2, we use different orbital order: first +1/2, then -1/2</span>

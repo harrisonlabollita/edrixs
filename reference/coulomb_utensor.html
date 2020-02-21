@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-        <script type="text/javascript" src="../_static/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script >var copybuttonSkipText = '>>> ';</script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -218,11 +219,11 @@ Transition-Metal Ions in Crystals. Academic Press, New York and London.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 </pre></div>
 </div>
 <p>Get gaunt coefficients between <span class="math notranslate nohighlight">\(p\)</span>-shell and <span class="math notranslate nohighlight">\(d\)</span>-shell</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">get_gaunt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">get_gaunt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -272,11 +273,11 @@ where <span class="math notranslate nohighlight">\(k\)</span> is the order,
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 </pre></div>
 </div>
 <p>For only one <span class="math notranslate nohighlight">\(d\)</span>-shell</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="o">=</span><span class="p">{}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F0</span><span class="p">,</span> <span class="n">F2</span><span class="p">,</span> <span class="n">F4</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.0</span> <span class="mf">2.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0</span>
@@ -286,7 +287,7 @@ where <span class="math notranslate nohighlight">\(k\)</span> is the order,
 </pre></div>
 </div>
 <p>For one <span class="math notranslate nohighlight">\(d\)</span>-shell and one <span class="math notranslate nohighlight">\(p\)</span>-shell</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="o">=</span><span class="p">{}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F0_dd</span><span class="p">,</span> <span class="n">F2_dd</span><span class="p">,</span> <span class="n">F4_dd</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F0_dp</span><span class="p">,</span> <span class="n">F2_dp</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span>
@@ -294,28 +295,28 @@ where <span class="math notranslate nohighlight">\(k\)</span> is the order,
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F0_pp</span><span class="p">,</span> <span class="n">F2_pp</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dd</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_dd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F4_dd</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dp</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_dp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_dp</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G1_dp</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G1_dp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G1_dp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G3_dp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G3_dp</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_pp</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_pp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_pp</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umat_dp</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">umat_slater</span><span class="p">(</span><span class="n">l_list</span><span class="p">,</span> <span class="n">fk</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umat_dp</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">umat_slater</span><span class="p">(</span><span class="n">l_list</span><span class="p">,</span> <span class="n">fk</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -508,7 +509,7 @@ G0_12, G2_12, G4_12, G6_12, F0_22, F2_22, F4_22, F6_22]</p>
 </dl>
 </div>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F0_dd</span><span class="p">,</span> <span class="n">F2_dd</span><span class="p">,</span> <span class="n">F4_dd</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F0_dp</span><span class="p">,</span> <span class="n">F2_dp</span><span class="p">,</span> <span class="n">G1_dp</span><span class="p">,</span> <span class="n">G3_dp</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">F0_pp</span><span class="p">,</span> <span class="n">F2_pp</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>

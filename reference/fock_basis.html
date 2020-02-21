@@ -21,13 +21,14 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-        <script type="text/javascript" src="../_static/copybutton.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script >var copybuttonSkipText = '>>> ';</script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -196,7 +197,7 @@
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="go">15</span>
 </pre></div>
@@ -225,7 +226,7 @@ where <span class="math notranslate nohighlight">\(k\)</span> of <span class="ma
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">fock_bin</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="go">[[1, 1, 0, 0],</span>
 <span class="go"> [1, 0, 1, 0],</span>
@@ -262,7 +263,7 @@ where <span class="math notranslate nohighlight">\(k\)</span> of <span class="ma
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">get_fock_bin_by_N</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="go">[[1, 1, 0, 0],</span>
 <span class="go"> [1, 0, 1, 0],</span>
@@ -272,7 +273,7 @@ where <span class="math notranslate nohighlight">\(k\)</span> of <span class="ma
 <span class="go"> [0, 0, 1, 1]]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">get_fock_bin_by_N</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">get_fock_bin_by_N</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">[[1, 1, 0, 0, 1, 0],</span>
 <span class="go"> [1, 0, 1, 0, 1, 0],</span>
 <span class="go"> [1, 0, 0, 1, 1, 0],</span>
@@ -310,7 +311,7 @@ where <span class="math notranslate nohighlight">\(k\)</span> of <span class="ma
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">fock_bin</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">[[1, 1, 0, 0],</span>
 <span class="go"> [1, 0, 1, 0],</span>
@@ -320,7 +321,7 @@ where <span class="math notranslate nohighlight">\(k\)</span> of <span class="ma
 <span class="go"> [0, 0, 1, 1]]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">get_fock_full_N</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">[3, 5, 6, 9, 10, 12]</span>
 </pre></div>
@@ -354,7 +355,7 @@ quantum numbers <span class="math notranslate nohighlight">\(L_{z}\)</span>, the
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">get_fock_basis_by_NLz</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="go">{</span>
 <span class="go"> -2: [3],</span>
@@ -394,7 +395,7 @@ numbers <span class="math notranslate nohighlight">\(S_{z}\)</span>, the value i
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">get_fock_basis_by_NSz</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="go">{</span>
 <span class="go"> -2: [10, 34, 40],</span>
@@ -434,7 +435,7 @@ numbers <span class="math notranslate nohighlight">\(j_{z}\)</span>, the value i
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">get_fock_basis_by_NJz</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="go">{</span>
 <span class="go"> -6: [],</span>
@@ -510,7 +511,7 @@ numbers ( <span class="math notranslate nohighlight">\(l_{z}\)</span>, <span cla
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">get_fock_basis_by_N_LzSz</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="go">{</span>
 <span class="go"> (-2, -2): [],</span>
@@ -567,7 +568,7 @@ ascending order and then write them to file.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edrixs</span><span class="o">.</span><span class="n">write_fock_dec_by_N</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;fock_i.in&#39;</span><span class="p">)</span>
 <span class="go">file fock_i.in looks like</span>
 <span class="go">15</span>

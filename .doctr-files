@@ -41,6 +41,7 @@
 ./_sources/user/usedocker.rst.txt
 ./_sources/user/whatisedrixs.rst.txt
 ./_static/basic.css
+./_static/clipboard.min.js
 ./_static/copy-button.svg
 ./_static/copybutton.css
 ./_static/copybutton.js
