@@ -27,7 +27,6 @@
         <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
-        <script >var copybuttonSkipText = '>>> ';</script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -174,9 +173,9 @@
             
   <div class="section" id="module-edrixs.wannier_ham">
 <span id="wannier-ham"></span><h1>wannier_ham<a class="headerlink" href="#module-edrixs.wannier_ham" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="edrixs.wannier_ham.HR">
-<em class="property">class </em><code class="sig-prename descclassname">edrixs.wannier_ham.</code><code class="sig-name descname">HR</code><span class="sig-paren">(</span><em class="sig-param">nwann</em>, <em class="sig-param">nrpt</em>, <em class="sig-param">irpt0</em>, <em class="sig-param">rpts</em>, <em class="sig-param">deg_rpt</em>, <em class="sig-param">hr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#HR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.HR" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">edrixs.wannier_ham.</code><code class="sig-name descname">HR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nwann</span></em>, <em class="sig-param"><span class="n">nrpt</span></em>, <em class="sig-param"><span class="n">irpt0</span></em>, <em class="sig-param"><span class="n">rpts</span></em>, <em class="sig-param"><span class="n">deg_rpt</span></em>, <em class="sig-param"><span class="n">hr</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#HR"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.HR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for post-process of the Wannier90 tight-binding (TB) Hamiltonian in real space.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -196,9 +195,9 @@
 </dl>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="edrixs.wannier_ham.HR.copy_hr">
-<em class="property">static </em><code class="sig-name descname">copy_hr</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#HR.copy_hr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.HR.copy_hr" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">copy_hr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#HR.copy_hr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.HR.copy_hr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy instance of HR.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -216,9 +215,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="edrixs.wannier_ham.HR.from_file">
-<em class="property">static </em><code class="sig-name descname">from_file</code><span class="sig-paren">(</span><em class="sig-param">fname='wannier90_hr.dat'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#HR.from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.HR.from_file" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">from_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span><span class="o">=</span><span class="default_value">'wannier90_hr.dat'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#HR.from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.HR.from_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a TB Hamiltonian from Wannier90 output file “case_hr.dat”.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -236,9 +235,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="edrixs.wannier_ham.HR.get_hr">
-<code class="sig-name descname">get_hr</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ispin</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#HR.get_hr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.HR.get_hr" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_hr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">ispin</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#HR.get_hr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.HR.get_hr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the Hamiltonian of <span class="math notranslate nohighlight">\(H(r)\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -256,9 +255,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="edrixs.wannier_ham.HR.get_hr0">
-<code class="sig-name descname">get_hr0</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ispin=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#HR.get_hr0"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.HR.get_hr0" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_hr0</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">ispin</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#HR.get_hr0"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.HR.get_hr0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the on-site term <span class="math notranslate nohighlight">\(H(r=0)\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -278,9 +277,9 @@
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="edrixs.wannier_ham.KVec">
-<em class="property">class </em><code class="sig-prename descclassname">edrixs.wannier_ham.</code><code class="sig-name descname">KVec</code><span class="sig-paren">(</span><em class="sig-param">kpt_type='uni'</em>, <em class="sig-param">kbase=None</em>, <em class="sig-param">nkpt=None</em>, <em class="sig-param">kvec=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#KVec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.KVec" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">edrixs.wannier_ham.</code><code class="sig-name descname">KVec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kpt_type</span><span class="o">=</span><span class="default_value">'uni'</span></em>, <em class="sig-param"><span class="n">kbase</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">nkpt</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">kvec</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#KVec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.KVec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define <span class="math notranslate nohighlight">\(k\)</span> points in BZ, high symmetry line or uniform grid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -296,9 +295,9 @@
 </dl>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="edrixs.wannier_ham.KVec.kvec_from_file">
-<code class="sig-name descname">kvec_from_file</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#KVec.kvec_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.KVec.kvec_from_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">kvec_from_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">fname</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#KVec.kvec_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.KVec.kvec_from_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read <span class="math notranslate nohighlight">\(k\)</span> points from file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -310,9 +309,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="edrixs.wannier_ham.KVec.set_base">
-<code class="sig-name descname">set_base</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">kbase</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#KVec.set_base"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.KVec.set_base" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_base</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">kbase</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#KVec.set_base"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.KVec.set_base" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the basis of the primitive reciprocal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -326,9 +325,9 @@
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="edrixs.wannier_ham.SymKVec">
-<em class="property">class </em><code class="sig-prename descclassname">edrixs.wannier_ham.</code><code class="sig-name descname">SymKVec</code><span class="sig-paren">(</span><em class="sig-param">kbase=None</em>, <em class="sig-param">hsymkpt=None</em>, <em class="sig-param">klen=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#SymKVec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.SymKVec" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">edrixs.wannier_ham.</code><code class="sig-name descname">SymKVec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kbase</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hsymkpt</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">klen</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#SymKVec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.SymKVec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for defining <span class="math notranslate nohighlight">\(k\)</span> points in high symmetry line, derived from <a class="reference internal" href="#edrixs.wannier_ham.KVec" title="edrixs.wannier_ham.KVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">KVec</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -342,9 +341,9 @@
 </dl>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="edrixs.wannier_ham.SymKVec.from_hsymkpt">
-<code class="sig-name descname">from_hsymkpt</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">nkpt_per_path=20</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#SymKVec.from_hsymkpt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.SymKVec.from_hsymkpt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">from_hsymkpt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">nkpt_per_path</span><span class="o">=</span><span class="default_value">20</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#SymKVec.from_hsymkpt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.SymKVec.from_hsymkpt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given starting and end <span class="math notranslate nohighlight">\(k\)</span> points of each segment,
 and the number of points per each segment,
 return the high symmetry <span class="math notranslate nohighlight">\(k\)</span> points.</p>
@@ -358,9 +357,9 @@ return the high symmetry <span class="math notranslate nohighlight">\(k\)</span>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="edrixs.wannier_ham.SymKVec.from_hsymkpt_uni">
-<code class="sig-name descname">from_hsymkpt_uni</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">step</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#SymKVec.from_hsymkpt_uni"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.SymKVec.from_hsymkpt_uni" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">from_hsymkpt_uni</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">step</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#SymKVec.from_hsymkpt_uni"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.SymKVec.from_hsymkpt_uni" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a step, return high symmetry <span class="math notranslate nohighlight">\(k\)</span> points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -372,17 +371,17 @@ return the high symmetry <span class="math notranslate nohighlight">\(k\)</span>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="edrixs.wannier_ham.SymKVec.get_klen">
-<code class="sig-name descname">get_klen</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#SymKVec.get_klen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.SymKVec.get_klen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_klen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#SymKVec.get_klen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.SymKVec.get_klen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return length of <span class="math notranslate nohighlight">\(k\)</span> points segments.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="edrixs.wannier_ham.UniKVec">
-<em class="property">class </em><code class="sig-prename descclassname">edrixs.wannier_ham.</code><code class="sig-name descname">UniKVec</code><span class="sig-paren">(</span><em class="sig-param">grid=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#UniKVec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.UniKVec" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">edrixs.wannier_ham.</code><code class="sig-name descname">UniKVec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">grid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#UniKVec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.UniKVec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for defining uniform <span class="math notranslate nohighlight">\(k\)</span> points grid, derived from <a class="reference internal" href="#edrixs.wannier_ham.KVec" title="edrixs.wannier_ham.KVec"><code class="xref py py-class docutils literal notranslate"><span class="pre">KVec</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -392,9 +391,9 @@ return the high symmetry <span class="math notranslate nohighlight">\(k\)</span>
 </dl>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="edrixs.wannier_ham.UniKVec.from_grid">
-<code class="sig-name descname">from_grid</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#UniKVec.from_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.UniKVec.from_grid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">from_grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/wannier_ham.html#UniKVec.from_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.wannier_ham.UniKVec.from_grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return uniform <span class="math notranslate nohighlight">\(k\)</span> points.</p>
 </dd></dl>
 

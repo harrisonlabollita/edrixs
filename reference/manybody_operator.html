@@ -27,7 +27,6 @@
         <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
-        <script >var copybuttonSkipText = '>>> ';</script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -174,9 +173,9 @@
             
   <div class="section" id="module-edrixs.manybody_operator">
 <span id="manybody-operator"></span><h1>manybody_operator<a class="headerlink" href="#module-edrixs.manybody_operator" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.manybody_operator.one_fermion_annihilation">
-<code class="sig-prename descclassname">edrixs.manybody_operator.</code><code class="sig-name descname">one_fermion_annihilation</code><span class="sig-paren">(</span><em class="sig-param">iorb</em>, <em class="sig-param">lb</em>, <em class="sig-param">rb</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/manybody_operator.html#one_fermion_annihilation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.manybody_operator.one_fermion_annihilation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.manybody_operator.</code><code class="sig-name descname">one_fermion_annihilation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iorb</span></em>, <em class="sig-param"><span class="n">lb</span></em>, <em class="sig-param"><span class="n">rb</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/manybody_operator.html#one_fermion_annihilation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.manybody_operator.one_fermion_annihilation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build matrix form of a fermionic annihilation operator in the given Fock basis.</p>
 <div class="math notranslate nohighlight">
 \[&lt;F_{l}|\hat{f}_{i}|F_{r}&gt;\]</div>
@@ -200,9 +199,9 @@
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.manybody_operator.two_fermion">
-<code class="sig-prename descclassname">edrixs.manybody_operator.</code><code class="sig-name descname">two_fermion</code><span class="sig-paren">(</span><em class="sig-param">emat</em>, <em class="sig-param">lb</em>, <em class="sig-param">rb=None</em>, <em class="sig-param">tol=1e-10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/manybody_operator.html#two_fermion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.manybody_operator.two_fermion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.manybody_operator.</code><code class="sig-name descname">two_fermion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">emat</span></em>, <em class="sig-param"><span class="n">lb</span></em>, <em class="sig-param"><span class="n">rb</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-10</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/manybody_operator.html#two_fermion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.manybody_operator.two_fermion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build matrix form of a two-fermionic operator in the given Fock basis,</p>
 <div class="math notranslate nohighlight">
 \[&lt;F_{l}|\sum_{ij}E_{ij}\hat{f}_{i}^{\dagger}\hat{f}_{j}|F_{r}&gt;\]</div>
@@ -229,9 +228,9 @@ rb = lb if rb is None</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.manybody_operator.four_fermion">
-<code class="sig-prename descclassname">edrixs.manybody_operator.</code><code class="sig-name descname">four_fermion</code><span class="sig-paren">(</span><em class="sig-param">umat</em>, <em class="sig-param">lb</em>, <em class="sig-param">rb=None</em>, <em class="sig-param">tol=1e-10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/manybody_operator.html#four_fermion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.manybody_operator.four_fermion" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.manybody_operator.</code><code class="sig-name descname">four_fermion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">umat</span></em>, <em class="sig-param"><span class="n">lb</span></em>, <em class="sig-param"><span class="n">rb</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-10</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/manybody_operator.html#four_fermion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.manybody_operator.four_fermion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build matrix form of a four-fermionic operator in the given Fock basis,</p>
 <div class="math notranslate nohighlight">
 \[&lt;F_l|\sum_{ij}U_{ijkl}\hat{f}_{i}^{\dagger}\hat{f}_{j}^{\dagger}
@@ -259,9 +258,9 @@ rb = lb if rb is None</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.manybody_operator.build_opers">
-<code class="sig-prename descclassname">edrixs.manybody_operator.</code><code class="sig-name descname">build_opers</code><span class="sig-paren">(</span><em class="sig-param">nfermion</em>, <em class="sig-param">coeff</em>, <em class="sig-param">lb</em>, <em class="sig-param">rb=None</em>, <em class="sig-param">tol=1e-10</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/manybody_operator.html#build_opers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.manybody_operator.build_opers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.manybody_operator.</code><code class="sig-name descname">build_opers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nfermion</span></em>, <em class="sig-param"><span class="n">coeff</span></em>, <em class="sig-param"><span class="n">lb</span></em>, <em class="sig-param"><span class="n">rb</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-10</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/manybody_operator.html#build_opers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.manybody_operator.build_opers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build matrix form of many-body operators in the given Fock basis,</p>
 <div class="math notranslate nohighlight">
 \[&lt;F_{l}|\sum_{ij}E_{ij}\hat{f}_{i}^{\dagger}\hat{f}_{j}|F_{r}&gt;\]</div>
@@ -319,9 +318,9 @@ For examples,</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.manybody_operator.density_matrix">
-<code class="sig-prename descclassname">edrixs.manybody_operator.</code><code class="sig-name descname">density_matrix</code><span class="sig-paren">(</span><em class="sig-param">iorb</em>, <em class="sig-param">jorb</em>, <em class="sig-param">lb</em>, <em class="sig-param">rb</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/manybody_operator.html#density_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.manybody_operator.density_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.manybody_operator.</code><code class="sig-name descname">density_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">iorb</span></em>, <em class="sig-param"><span class="n">jorb</span></em>, <em class="sig-param"><span class="n">lb</span></em>, <em class="sig-param"><span class="n">rb</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/manybody_operator.html#density_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.manybody_operator.density_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the matrix form of density operators <span class="math notranslate nohighlight">\(\hat{f}_{i}^{\dagger}\hat{f}_{j}\)</span>
 in the given Fock basis,</p>
 <div class="math notranslate nohighlight">

@@ -27,7 +27,6 @@
         <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
-        <script >var copybuttonSkipText = '>>> ';</script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -174,9 +173,9 @@
             
   <div class="section" id="module-edrixs.coulomb_utensor">
 <span id="coulomb-utensor"></span><h1>coulomb_utensor<a class="headerlink" href="#module-edrixs.coulomb_utensor" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.coulomb_utensor.get_gaunt">
-<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_gaunt</code><span class="sig-paren">(</span><em class="sig-param">l1</em>, <em class="sig-param">l2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_gaunt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_gaunt" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_gaunt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">l1</span></em>, <em class="sig-param"><span class="n">l2</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_gaunt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_gaunt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the Gaunt coefficents <span class="math notranslate nohighlight">\(C_{l_1,l_2}(k,m_1,m_2)\)</span></p>
 <div class="math notranslate nohighlight">
 \[C_{l_1,l_2}(k,m_1,m_2)=\sqrt{\frac{4\pi}{2k+1}} \int
@@ -228,9 +227,9 @@ Transition-Metal Ions in Crystals. Academic Press, New York and London.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.coulomb_utensor.umat_slater">
-<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">umat_slater</code><span class="sig-paren">(</span><em class="sig-param">l_list</em>, <em class="sig-param">fk</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#umat_slater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.umat_slater" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">umat_slater</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">l_list</span></em>, <em class="sig-param"><span class="n">fk</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#umat_slater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.umat_slater" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the Coulomb interaction tensor which is parameterized by
 Slater integrals <span class="math notranslate nohighlight">\(F^{k}\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -321,9 +320,9 @@ where <span class="math notranslate nohighlight">\(k\)</span> is the order,
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.coulomb_utensor.get_umat_kanamori_ge">
-<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_kanamori_ge</code><span class="sig-paren">(</span><em class="sig-param">norbs</em>, <em class="sig-param">U1</em>, <em class="sig-param">U2</em>, <em class="sig-param">J</em>, <em class="sig-param">Jx</em>, <em class="sig-param">Jp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_kanamori_ge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_kanamori_ge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_kanamori_ge</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">norbs</span></em>, <em class="sig-param"><span class="n">U1</span></em>, <em class="sig-param"><span class="n">U2</span></em>, <em class="sig-param"><span class="n">J</span></em>, <em class="sig-param"><span class="n">Jx</span></em>, <em class="sig-param"><span class="n">Jp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_kanamori_ge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_kanamori_ge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the Coulomb interaction tensor for a Kanamori-type interaction.
 For the general case, it is parameterized by <span class="math notranslate nohighlight">\(U_1, U_2, J, J_x, J_p\)</span>.</p>
 <dl class="field-list simple">
@@ -362,9 +361,9 @@ For the general case, it is parameterized by <span class="math notranslate nohig
 <p>The order of spin index is: up, down, up, down, …, up, down.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.coulomb_utensor.get_umat_slater">
-<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_slater</code><span class="sig-paren">(</span><em class="sig-param">case</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_slater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_slater" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_slater</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">case</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_slater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_slater" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convenient adapter function to return the Coulomb interaction tensor for common case.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -522,9 +521,9 @@ G0_12, G2_12, G4_12, G6_12, F0_22, F2_22, F4_22, F6_22]</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.coulomb_utensor.get_umat_kanamori">
-<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_kanamori</code><span class="sig-paren">(</span><em class="sig-param">norbs</em>, <em class="sig-param">U</em>, <em class="sig-param">J</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_kanamori"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_kanamori" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_kanamori</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">norbs</span></em>, <em class="sig-param"><span class="n">U</span></em>, <em class="sig-param"><span class="n">J</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_kanamori"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_kanamori" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the Coulomb interaction tensor for a Kanamori-type interaction.
 For the <span class="math notranslate nohighlight">\(t2g\)</span>-shell case, it is parameterized by <span class="math notranslate nohighlight">\(U, J\)</span>.</p>
 <dl class="field-list simple">
@@ -557,9 +556,9 @@ For the <span class="math notranslate nohighlight">\(t2g\)</span>-shell case, it
 <p>The order of spin index is: up, down, up, down, …, up, down.</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.coulomb_utensor.get_umat_slater_3shells">
-<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_slater_3shells</code><span class="sig-paren">(</span><em class="sig-param">shell_name</em>, <em class="sig-param">*args</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_slater_3shells"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_slater_3shells" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_slater_3shells</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shell_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_slater_3shells"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_slater_3shells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given three shells, build the slater type of Coulomb tensors among
 the three shells.</p>
 <dl class="field-list">

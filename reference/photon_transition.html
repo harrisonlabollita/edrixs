@@ -27,7 +27,6 @@
         <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
-        <script >var copybuttonSkipText = '>>> ';</script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
@@ -174,9 +173,9 @@
             
   <div class="section" id="module-edrixs.photon_transition">
 <span id="photon-transition"></span><h1>photon_transition<a class="headerlink" href="#module-edrixs.photon_transition" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.photon_transition.get_trans_oper">
-<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">get_trans_oper</code><span class="sig-paren">(</span><em class="sig-param">case</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#get_trans_oper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.get_trans_oper" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">get_trans_oper</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">case</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#get_trans_oper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.get_trans_oper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the matrix of transition operators between two atomic shell in the complex
 spherical harmonics basis.</p>
 <dl class="field-list simple">
@@ -257,9 +256,9 @@ spherical harmonics basis.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.photon_transition.unit_wavevector">
-<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">unit_wavevector</code><span class="sig-paren">(</span><em class="sig-param">theta</em>, <em class="sig-param">phi</em>, <em class="sig-param">local_axis=None</em>, <em class="sig-param">direction='in'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#unit_wavevector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.unit_wavevector" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">unit_wavevector</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theta</span></em>, <em class="sig-param"><span class="n">phi</span></em>, <em class="sig-param"><span class="n">local_axis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">direction</span><span class="o">=</span><span class="default_value">'in'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#unit_wavevector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.unit_wavevector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given incident or scattered angle, and azimuthal angle, return
 unit wavevector with respect to global <span class="math notranslate nohighlight">\(xyz\)</span>-axis.</p>
 <dl class="field-list">
@@ -294,9 +293,9 @@ unit wavevector with respect to global <span class="math notranslate nohighlight
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.photon_transition.wavevector_with_length">
-<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">wavevector_with_length</code><span class="sig-paren">(</span><em class="sig-param">theta</em>, <em class="sig-param">phi</em>, <em class="sig-param">energy</em>, <em class="sig-param">local_axis=None</em>, <em class="sig-param">direction='in'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#wavevector_with_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.wavevector_with_length" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">wavevector_with_length</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theta</span></em>, <em class="sig-param"><span class="n">phi</span></em>, <em class="sig-param"><span class="n">energy</span></em>, <em class="sig-param"><span class="n">local_axis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">direction</span><span class="o">=</span><span class="default_value">'in'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#wavevector_with_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.wavevector_with_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given incident or scattered angle, azimuthal angle, energy of photon, return
 wavevector with respect to global <span class="math notranslate nohighlight">\(xyz\)</span>-axis.</p>
 <dl class="field-list">
@@ -333,9 +332,9 @@ wavevector with respect to global <span class="math notranslate nohighlight">\(x
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.photon_transition.get_wavevector_rixs">
-<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">get_wavevector_rixs</code><span class="sig-paren">(</span><em class="sig-param">thin</em>, <em class="sig-param">thout</em>, <em class="sig-param">phi</em>, <em class="sig-param">ein</em>, <em class="sig-param">eout</em>, <em class="sig-param">local_axis=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#get_wavevector_rixs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.get_wavevector_rixs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">get_wavevector_rixs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">thin</span></em>, <em class="sig-param"><span class="n">thout</span></em>, <em class="sig-param"><span class="n">phi</span></em>, <em class="sig-param"><span class="n">ein</span></em>, <em class="sig-param"><span class="n">eout</span></em>, <em class="sig-param"><span class="n">local_axis</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#get_wavevector_rixs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.get_wavevector_rixs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the wave vector of incident and scattered photons, for RIXS calculation.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -371,9 +370,9 @@ wavevector with respect to global <span class="math notranslate nohighlight">\(x
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.photon_transition.linear_polvec">
-<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">linear_polvec</code><span class="sig-paren">(</span><em class="sig-param">theta</em>, <em class="sig-param">phi</em>, <em class="sig-param">alpha</em>, <em class="sig-param">local_axis=None</em>, <em class="sig-param">direction='in'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#linear_polvec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.linear_polvec" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">linear_polvec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">theta</span></em>, <em class="sig-param"><span class="n">phi</span></em>, <em class="sig-param"><span class="n">alpha</span></em>, <em class="sig-param"><span class="n">local_axis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">direction</span><span class="o">=</span><span class="default_value">'in'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#linear_polvec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.linear_polvec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return linear polarization vector.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -409,9 +408,9 @@ wavevector with respect to global <span class="math notranslate nohighlight">\(x
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.photon_transition.dipole_polvec_rixs">
-<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">dipole_polvec_rixs</code><span class="sig-paren">(</span><em class="sig-param">thin</em>, <em class="sig-param">thout</em>, <em class="sig-param">phi=0</em>, <em class="sig-param">alpha=0</em>, <em class="sig-param">beta=0</em>, <em class="sig-param">local_axis=None</em>, <em class="sig-param">pol_type=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#dipole_polvec_rixs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.dipole_polvec_rixs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">dipole_polvec_rixs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">thin</span></em>, <em class="sig-param"><span class="n">thout</span></em>, <em class="sig-param"><span class="n">phi</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">beta</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">local_axis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pol_type</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#dipole_polvec_rixs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.dipole_polvec_rixs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return polarization vector of incident and scattered photons, for RIXS calculation.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -460,9 +459,9 @@ with respect to the global <span class="math notranslate nohighlight">\(xyz\)</s
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.photon_transition.dipole_polvec_xas">
-<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">dipole_polvec_xas</code><span class="sig-paren">(</span><em class="sig-param">thin</em>, <em class="sig-param">phi=0</em>, <em class="sig-param">alpha=0</em>, <em class="sig-param">local_axis=None</em>, <em class="sig-param">pol_type='linear'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#dipole_polvec_xas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.dipole_polvec_xas" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">dipole_polvec_xas</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">thin</span></em>, <em class="sig-param"><span class="n">phi</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">alpha</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">local_axis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pol_type</span><span class="o">=</span><span class="default_value">'linear'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#dipole_polvec_xas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.dipole_polvec_xas" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the linear polarization vector of incident photons, for XAS calculation.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -504,9 +503,9 @@ global <span class="math notranslate nohighlight">\(xyz\)</span> -axis.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="edrixs.photon_transition.quadrupole_polvec">
-<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">quadrupole_polvec</code><span class="sig-paren">(</span><em class="sig-param">polvec</em>, <em class="sig-param">wavevec</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#quadrupole_polvec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.quadrupole_polvec" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">edrixs.photon_transition.</code><code class="sig-name descname">quadrupole_polvec</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">polvec</span></em>, <em class="sig-param"><span class="n">wavevec</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/photon_transition.html#quadrupole_polvec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.photon_transition.quadrupole_polvec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given dipolar polarization vector and wave-vector, return quadrupolar polarization vector.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

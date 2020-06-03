@@ -27,7 +27,6 @@
         <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
-        <script >var copybuttonSkipText = '>>> ';</script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
@@ -159,18 +158,18 @@
 <span class="kn">from</span> <span class="nn">.basis_transform</span> <span class="kn">import</span> <span class="n">cb_op</span><span class="p">,</span> <span class="n">tmat_r2c</span>
 
 
-<div class="viewcode-block" id="get_ladd"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_ladd">[docs]</a><span class="k">def</span> <span class="nf">get_ladd</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_ladd"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_ladd">[docs]</a><span class="k">def</span> <span class="nf">get_ladd</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the matrix form of the raising operator :math:`l^+` in the</span>
 <span class="sd">    complex spherical harmonics basis</span>
 
 <span class="sd">    .. math::</span>
 
-<span class="sd">        l^+|l,m&gt; = \\sqrt{(l-m)(l+m+1)} |l,m+1&gt;</span>
+<span class="sd">        l^+|ll,m&gt; = \\sqrt{(ll-m)(ll+m+1)} |ll,m+1&gt;</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    l: int</span>
+<span class="sd">    ll: int</span>
 <span class="sd">        Orbital angular momentum number.</span>
 <span class="sd">    ispin: logical</span>
 <span class="sd">        Whether including spin or not (default: False).</span>
@@ -180,16 +179,16 @@
 <span class="sd">    ladd: 2d complex array</span>
 <span class="sd">        The matrix form of :math:`l^+`.</span>
 
-<span class="sd">        If ispin=True, the dimension will be :math:`2(2l+1) \\times 2(2l+1)`,</span>
+<span class="sd">        If ispin=True, the dimension will be :math:`2(2ll+1) \\times 2(2ll+1)`,</span>
 
-<span class="sd">        otherwise, it will be :math:`(2l+1) \\times (2l+1)`.</span>
+<span class="sd">        otherwise, it will be :math:`(2ll+1) \\times (2ll+1)`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">ladd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">norbs</span><span class="p">,</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
     <span class="n">cone</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.0</span><span class="n">j</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
-        <span class="n">ladd</span><span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">l</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">cone</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">ll</span><span class="p">,</span> <span class="n">ll</span><span class="p">):</span>
+        <span class="n">ladd</span><span class="p">[</span><span class="n">ll</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ll</span> <span class="o">+</span> <span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">ll</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">ll</span> <span class="o">+</span> <span class="n">m</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">cone</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ispin</span><span class="p">:</span>
         <span class="n">ladd_spin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
         <span class="n">ladd_spin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">ladd</span>
@@ -199,18 +198,18 @@
         <span class="k">return</span> <span class="n">ladd</span></div>
 
 
-<div class="viewcode-block" id="get_lminus"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_lminus">[docs]</a><span class="k">def</span> <span class="nf">get_lminus</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_lminus"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_lminus">[docs]</a><span class="k">def</span> <span class="nf">get_lminus</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the matrix form of the lowering operator :math:`l^-` in the</span>
 <span class="sd">    complex spherical harmonics basis</span>
 
 <span class="sd">    .. math::</span>
 
-<span class="sd">        l^-|l,m&gt; = \\sqrt{(l+m)(l-m+1)} |l,m-1&gt;</span>
+<span class="sd">        l^-|ll,m&gt; = \\sqrt{(ll+m)(ll-m+1)} |ll,m-1&gt;</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    l: int</span>
+<span class="sd">    ll: int</span>
 <span class="sd">        Orbital angular momentum number.</span>
 <span class="sd">    ispin: logical</span>
 <span class="sd">        Whether including spin or not (default: False).</span>
@@ -220,16 +219,16 @@
 <span class="sd">    lminus: 2d complex array</span>
 <span class="sd">        The matrix form of :math:`l^-`.</span>
 
-<span class="sd">        If ispin=True, the dimension will be :math:`2(2l+1) \\times 2(2l+1)`,</span>
+<span class="sd">        If ispin=True, the dimension will be :math:`2(2ll+1) \\times 2(2ll+1)`,</span>
 
-<span class="sd">        otherwise, it will be :math:`(2l+1) \\times (2l+1)`.</span>
+<span class="sd">        otherwise, it will be :math:`(2ll+1) \\times (2ll+1)`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">lminus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">norbs</span><span class="p">,</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
     <span class="n">cone</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.0</span><span class="n">j</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">lminus</span><span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">l</span> <span class="o">+</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">l</span> <span class="o">-</span> <span class="n">m</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">cone</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">lminus</span><span class="p">[</span><span class="n">ll</span> <span class="o">+</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ll</span> <span class="o">+</span> <span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">ll</span> <span class="o">+</span> <span class="n">m</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">ll</span> <span class="o">-</span> <span class="n">m</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">cone</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ispin</span><span class="p">:</span>
         <span class="n">lminus_spin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
         <span class="n">lminus_spin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">lminus</span>
@@ -239,7 +238,7 @@
         <span class="k">return</span> <span class="n">lminus</span></div>
 
 
-<div class="viewcode-block" id="get_lx"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_lx">[docs]</a><span class="k">def</span> <span class="nf">get_lx</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_lx"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_lx">[docs]</a><span class="k">def</span> <span class="nf">get_lx</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the matrix form of the orbital angular momentum</span>
 <span class="sd">    operator :math:`l_x` in the complex spherical harmonics basis,</span>
@@ -250,7 +249,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    l: int</span>
+<span class="sd">    ll: int</span>
 <span class="sd">        Orbital angular momentum number.</span>
 <span class="sd">    ispin: logical</span>
 <span class="sd">        Whether including spin or not (default: False).</span>
@@ -260,18 +259,18 @@
 <span class="sd">    lx: 2d complex array</span>
 <span class="sd">        The matrix form of :math:`l_x`.</span>
 
-<span class="sd">        If ispin=True, the dimension will be :math:`2(2l+1) \\times 2(2l+1)`,</span>
+<span class="sd">        If ispin=True, the dimension will be :math:`2(2ll+1) \\times 2(2ll+1)`,</span>
 
-<span class="sd">        otherwise, it will be :math:`(2l+1) \\times (2l+1)`.</span>
+<span class="sd">        otherwise, it will be :math:`(2ll+1) \\times (2ll+1)`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">ispin</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">get_ladd</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="n">get_lminus</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">get_ladd</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="n">get_lminus</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">get_ladd</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">+</span> <span class="n">get_lminus</span><span class="p">(</span><span class="n">l</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="n">get_ladd</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span> <span class="o">+</span> <span class="n">get_lminus</span><span class="p">(</span><span class="n">ll</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span></div>
 
 
-<div class="viewcode-block" id="get_ly"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_ly">[docs]</a><span class="k">def</span> <span class="nf">get_ly</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_ly"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_ly">[docs]</a><span class="k">def</span> <span class="nf">get_ly</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the matrix form of the orbital angular momentum</span>
 <span class="sd">    operator :math:`l_y` in the complex spherical harmonics basis,</span>
@@ -282,7 +281,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    l: int</span>
+<span class="sd">    ll: int</span>
 <span class="sd">        Orbital angular momentum number.</span>
 <span class="sd">    ispin: logical</span>
 <span class="sd">        Whether including spin or not (default: False).</span>
@@ -292,25 +291,25 @@
 <span class="sd">    ly: 2d complex array</span>
 <span class="sd">        The matrix form of :math:`l_y`.</span>
 
-<span class="sd">        If ispin=True, the dimension will be :math:`2(2l+1) \\times 2(2l+1)`,</span>
+<span class="sd">        If ispin=True, the dimension will be :math:`2(2ll+1) \\times 2(2ll+1)`,</span>
 
-<span class="sd">        otherwise, it will be :math:`(2l+1) \\times (2l+1)`.</span>
+<span class="sd">        otherwise, it will be :math:`(2ll+1) \\times (2ll+1)`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">ispin</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">get_ladd</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_lminus</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">get_ladd</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_lminus</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">get_ladd</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_lminus</span><span class="p">(</span><span class="n">l</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="n">get_ladd</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span> <span class="o">-</span> <span class="n">get_lminus</span><span class="p">(</span><span class="n">ll</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span></div>
 
 
-<div class="viewcode-block" id="get_lz"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_lz">[docs]</a><span class="k">def</span> <span class="nf">get_lz</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_lz"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_lz">[docs]</a><span class="k">def</span> <span class="nf">get_lz</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the matrix form of the orbital angular momentum</span>
 <span class="sd">    operator :math:`l_z` in the complex spherical harmonics basis.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    l: int</span>
+<span class="sd">    ll: int</span>
 <span class="sd">        Orbital angular momentum number.</span>
 <span class="sd">    ispin: logical</span>
 <span class="sd">        Whether including spin or not (default: False).</span>
@@ -320,14 +319,14 @@
 <span class="sd">    lz: 2d complex array</span>
 <span class="sd">        The matrix form of :math:`l_z`.</span>
 
-<span class="sd">        If ispin=True, the dimension will be :math:`2(2l+1) \\times 2(2l+1)`,</span>
+<span class="sd">        If ispin=True, the dimension will be :math:`2(2ll+1) \\times 2(2ll+1)`,</span>
 
-<span class="sd">        otherwise, it will be :math:`(2l+1) \\times (2l+1)`.</span>
+<span class="sd">        otherwise, it will be :math:`(2ll+1) \\times (2ll+1)`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">lz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">norbs</span><span class="p">,</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">lz</span><span class="p">[</span><span class="n">l</span> <span class="o">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">ll</span><span class="p">,</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">lz</span><span class="p">[</span><span class="n">ll</span> <span class="o">+</span> <span class="n">m</span><span class="p">,</span> <span class="n">ll</span> <span class="o">+</span> <span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span>
     <span class="k">if</span> <span class="n">ispin</span><span class="p">:</span>
         <span class="n">lz_spin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
         <span class="n">lz_spin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">norbs</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">lz</span>
@@ -337,14 +336,14 @@
         <span class="k">return</span> <span class="n">lz</span></div>
 
 
-<div class="viewcode-block" id="get_orb_momentum"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_orb_momentum">[docs]</a><span class="k">def</span> <span class="nf">get_orb_momentum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="get_orb_momentum"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_orb_momentum">[docs]</a><span class="k">def</span> <span class="nf">get_orb_momentum</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the matrix form of the orbital angular momentum</span>
 <span class="sd">    operator :math:`l_x, l_y, l_z` in the complex spherical harmonics basis.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    l: int</span>
+<span class="sd">    ll: int</span>
 <span class="sd">        Orbital angular momentum number.</span>
 <span class="sd">    ispin: logical</span>
 <span class="sd">        Whether including spin or not (default: False).</span>
@@ -360,18 +359,18 @@
 
 <span class="sd">        - res[2]: :math:`l_z`</span>
 
-<span class="sd">        If ispin=True, the dimension will be :math:`3 \\times 2(2l+1) \\times 2(2l+1)`,</span>
+<span class="sd">        If ispin=True, the dimension will be :math:`3 \\times 2(2ll+1) \\times 2(2ll+1)`,</span>
 
-<span class="sd">        otherwise, it will be :math:`3 \\times (2l+1) \\times (2l+1)`.</span>
+<span class="sd">        otherwise, it will be :math:`3 \\times (2ll+1) \\times (2ll+1)`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">ispin</span><span class="p">:</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">norbs</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">norbs</span><span class="p">,</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
-    <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_lx</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="p">)</span>
-    <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_ly</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="p">)</span>
-    <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_lz</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="p">)</span>
+    <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_lx</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">ispin</span><span class="p">)</span>
+    <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_ly</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">ispin</span><span class="p">)</span>
+    <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_lz</span><span class="p">(</span><span class="n">ll</span><span class="p">,</span> <span class="n">ispin</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">res</span></div>
 
@@ -402,101 +401,101 @@
     <span class="k">return</span> <span class="n">sigma</span></div>
 
 
-<div class="viewcode-block" id="get_sx"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_sx">[docs]</a><span class="k">def</span> <span class="nf">get_sx</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+<div class="viewcode-block" id="get_sx"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_sx">[docs]</a><span class="k">def</span> <span class="nf">get_sx</span><span class="p">(</span><span class="n">ll</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the matrix form of spin angular momentum operator :math:`s_x` in the</span>
 <span class="sd">    complex spherical harmonics basis.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    l: int</span>
+<span class="sd">    ll: int</span>
 <span class="sd">        Quantum number of orbital angular momentum.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    sx: 2d complex array.</span>
 <span class="sd">        Matrix form of :math:`s_x`, the dimension</span>
-<span class="sd">        is :math:`2(2l+1) \\times 2(2l+1)`,</span>
+<span class="sd">        is :math:`2(2ll+1) \\times 2(2ll+1)`,</span>
 
-<span class="sd">        Orbital order is: \\|-l,up\\&gt;, \\|-l,down\\&gt;, ...,</span>
-<span class="sd">        \\|+l, up\\&gt;, \\|+l,down\\&gt;.</span>
+<span class="sd">        Orbital order is: \\|-ll,up\\&gt;, \\|-ll,down\\&gt;, ...,</span>
+<span class="sd">        \\|+ll, up\\&gt;, \\|+ll,down\\&gt;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">sx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">norbs</span><span class="p">,</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
     <span class="n">sigma</span> <span class="o">=</span> <span class="n">get_pauli</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">sx</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">/</span> <span class="mf">2.0</span>
 
     <span class="k">return</span> <span class="n">sx</span></div>
 
 
-<div class="viewcode-block" id="get_sy"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_sy">[docs]</a><span class="k">def</span> <span class="nf">get_sy</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+<div class="viewcode-block" id="get_sy"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_sy">[docs]</a><span class="k">def</span> <span class="nf">get_sy</span><span class="p">(</span><span class="n">ll</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the matrix form of spin angular momentum operator :math:`s_y` in the</span>
 <span class="sd">    complex spherical harmonics basis.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    l: int</span>
+<span class="sd">    ll: int</span>
 <span class="sd">        Quantum number of orbital angular momentum.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    sy: 2d complex array.</span>
 <span class="sd">        Matrix form of :math:`s_y`, the dimension</span>
-<span class="sd">        is :math:`2(2l+1) \\times 2(2l+1)`, spin order is:</span>
+<span class="sd">        is :math:`2(2ll+1) \\times 2(2ll+1)`, spin order is:</span>
 
-<span class="sd">        Orbital order is: \\|-l,up\\&gt;, \\|-l,down\\&gt;, ...,</span>
-<span class="sd">        \\|+l, up\\&gt;, \\|+l,down\\&gt;</span>
+<span class="sd">        Orbital order is: \\|-ll,up\\&gt;, \\|-ll,down\\&gt;, ...,</span>
+<span class="sd">        \\|+ll, up\\&gt;, \\|+ll,down\\&gt;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">sy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">norbs</span><span class="p">,</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
     <span class="n">sigma</span> <span class="o">=</span> <span class="n">get_pauli</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">sy</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">/</span> <span class="mf">2.0</span>
 
     <span class="k">return</span> <span class="n">sy</span></div>
 
 
-<div class="viewcode-block" id="get_sz"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_sz">[docs]</a><span class="k">def</span> <span class="nf">get_sz</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+<div class="viewcode-block" id="get_sz"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_sz">[docs]</a><span class="k">def</span> <span class="nf">get_sz</span><span class="p">(</span><span class="n">ll</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the matrix form of spin angular momentum operator :math:`s_z` in the</span>
 <span class="sd">    complex spherical harmonics basis.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    l: int</span>
+<span class="sd">    ll: int</span>
 <span class="sd">        Quantum number of orbital angular momentum.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    sz: 2d complex array.</span>
 <span class="sd">        Matrix form of :math:`s_z`, the dimension</span>
-<span class="sd">        is :math:`2(2l+1) \\times 2(2l+1)`.</span>
+<span class="sd">        is :math:`2(2ll+1) \\times 2(2ll+1)`.</span>
 
-<span class="sd">        Orbital order is: \\|-l,up\\&gt;, \\|-l,down\\&gt;, ...,</span>
-<span class="sd">        \\|+l, up\\&gt;, \\|+l,down\\&gt;</span>
+<span class="sd">        Orbital order is: \\|-ll,up\\&gt;, \\|-ll,down\\&gt;, ...,</span>
+<span class="sd">        \\|+ll, up\\&gt;, \\|+ll,down\\&gt;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">sz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">norbs</span><span class="p">,</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
     <span class="n">sigma</span> <span class="o">=</span> <span class="n">get_pauli</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">sz</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">:</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">/</span> <span class="mf">2.0</span>
 
     <span class="k">return</span> <span class="n">sz</span></div>
 
 
-<div class="viewcode-block" id="get_spin_momentum"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_spin_momentum">[docs]</a><span class="k">def</span> <span class="nf">get_spin_momentum</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+<div class="viewcode-block" id="get_spin_momentum"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.get_spin_momentum">[docs]</a><span class="k">def</span> <span class="nf">get_spin_momentum</span><span class="p">(</span><span class="n">ll</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the matrix form of the spin angular momentum</span>
 <span class="sd">    operator :math:`s_x, s_y, s_z` in the complex spherical harmonics basis.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    l: int</span>
+<span class="sd">    ll: int</span>
 <span class="sd">        Orbital angular momentum number.</span>
 
 <span class="sd">    Returns</span>
@@ -510,16 +509,16 @@
 
 <span class="sd">        - res[2]: :math:`s_z`</span>
 
-<span class="sd">        the dimension is :math:`3 \\times 2(2l+1) \\times 2(2l+1)`,</span>
+<span class="sd">        the dimension is :math:`3 \\times 2(2ll+1) \\times 2(2ll+1)`,</span>
 
-<span class="sd">        Orbital order is: \\|-l,up\\&gt;, \\|-l,down\\&gt;, ...,</span>
-<span class="sd">        \\|+l, up\\&gt;, \\|+l,down\\&gt;</span>
+<span class="sd">        Orbital order is: \\|-ll,up\\&gt;, \\|-ll,down\\&gt;, ...,</span>
+<span class="sd">        \\|+ll, up\\&gt;, \\|+ll,down\\&gt;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">norbs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ll</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">norbs</span><span class="p">,</span> <span class="n">norbs</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>
-    <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_sx</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-    <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_sy</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-    <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_sz</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+    <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_sx</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span>
+    <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_sy</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span>
+    <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_sz</span><span class="p">(</span><span class="n">ll</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">res</span></div>
 
