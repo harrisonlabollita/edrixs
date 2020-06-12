@@ -27,7 +27,7 @@
         <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -234,6 +234,26 @@ xas_fsolver and rixs_fsolver.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="edrixs.plot_spectrum.plot_rixs_map">
+<code class="sig-prename descclassname">edrixs.plot_spectrum.</code><code class="sig-name descname">plot_rixs_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rixs_data</span></em>, <em class="sig-param"><span class="n">ominc_mesh</span></em>, <em class="sig-param"><span class="n">eloss_mesh</span></em>, <em class="sig-param"><span class="n">fname</span><span class="o">=</span><span class="default_value">'rixsmap.pdf'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/plot_spectrum.html#plot_rixs_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.plot_spectrum.plot_rixs_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given 2d RIXS data, plot a RIXS map and save it to a pdf file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>rixs_data: 2d float array</strong></dt><dd><p>Calculated RIXS data as a function of incident energy and energy loss.</p>
+</dd>
+<dt><strong>ominc_mesh: 1d float array</strong></dt><dd><p>Incident energy mesh.</p>
+</dd>
+<dt><strong>eloss_mesh: 1d float array</strong></dt><dd><p>Energy loss mesh.</p>
+</dd>
+<dt><strong>fname: string</strong></dt><dd><p>File name to save RIXS map.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="edrixs.plot_spectrum.plot_spectrum">
 <code class="sig-prename descclassname">edrixs.plot_spectrum.</code><code class="sig-name descname">plot_spectrum</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_list</span></em>, <em class="sig-param"><span class="n">omega_mesh</span></em>, <em class="sig-param"><span class="n">gamma_mesh</span></em>, <em class="sig-param"><span class="n">T</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">fname</span><span class="o">=</span><span class="default_value">'spectrum.dat'</span></em>, <em class="sig-param"><span class="n">om_shift</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">fmt_float</span><span class="o">=</span><span class="default_value">'{:.15f}'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/plot_spectrum.html#plot_spectrum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.plot_spectrum.plot_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reading poles <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, and calculate
@@ -258,26 +278,6 @@ the spectrum using continued fraction formula,</p>
 <dt><strong>om_shift: float (default: 0.0)</strong></dt><dd><p>Energy shift.</p>
 </dd>
 <dt><strong>fmt_float: str (default: ‘{:.15f}’)</strong></dt><dd><p>Format for printing float numbers.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="edrixs.plot_spectrum.plot_rixs_map">
-<code class="sig-prename descclassname">edrixs.plot_spectrum.</code><code class="sig-name descname">plot_rixs_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rixs_data</span></em>, <em class="sig-param"><span class="n">ominc_mesh</span></em>, <em class="sig-param"><span class="n">eloss_mesh</span></em>, <em class="sig-param"><span class="n">fname</span><span class="o">=</span><span class="default_value">'rixsmap.pdf'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/plot_spectrum.html#plot_rixs_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.plot_spectrum.plot_rixs_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given 2d RIXS data, plot a RIXS map and save it to a pdf file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>rixs_data: 2d float array</strong></dt><dd><p>Calculated RIXS data as a function of incident energy and energy loss.</p>
-</dd>
-<dt><strong>ominc_mesh: 1d float array</strong></dt><dd><p>Incident energy mesh.</p>
-</dd>
-<dt><strong>eloss_mesh: 1d float array</strong></dt><dd><p>Energy loss mesh.</p>
-</dd>
-<dt><strong>fname: string</strong></dt><dd><p>File name to save RIXS map.</p>
 </dd>
 </dl>
 </dd>

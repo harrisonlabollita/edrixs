@@ -27,7 +27,7 @@
         <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -228,37 +228,24 @@ Transition-Metal Ions in Crystals. Academic Press, New York and London.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="edrixs.coulomb_utensor.umat_slater">
-<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">umat_slater</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">l_list</span></em>, <em class="sig-param"><span class="n">fk</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#umat_slater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.umat_slater" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the Coulomb interaction tensor which is parameterized by
-Slater integrals <span class="math notranslate nohighlight">\(F^{k}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[U_{m_{l_i}m_{s_i}, m_{l_j}m_{s_j}, m_{l_t}m_{s_t},
-m_{l_u}m_{s_u}}^{i,j,t,u}
-=\frac{1}{2} \delta_{m_{s_i},m_{s_t}}\delta_{m_{s_j},m_{s_u}}
-\delta_{m_{l_i}+m_{l_j}, m_{l_t}+m_{l_u}}
-\sum_{k}C_{l_i,l_t}(k,m_{l_i},m_{l_t})C_{l_u,l_j}
-(k,m_{l_u},m_{l_j})F^{k}_{i,j,t,u}\]</div>
-<p>where <span class="math notranslate nohighlight">\(m_s\)</span> is the magnetic quantum number for spin
-and <span class="math notranslate nohighlight">\(m_l\)</span> is the magnetic quantum number for orbital.
-<span class="math notranslate nohighlight">\(F^{k}_{i,j,t,u}\)</span> are Slater integrals.
-<span class="math notranslate nohighlight">\(C_{l_i,l_j}(k,m_{l_i},m_{l_j})\)</span> are Gaunt coefficients.</p>
+<dt id="edrixs.coulomb_utensor.get_umat_kanamori">
+<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_kanamori</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">norbs</span></em>, <em class="sig-param"><span class="n">U</span></em>, <em class="sig-param"><span class="n">J</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_kanamori"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_kanamori" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Coulomb interaction tensor for a Kanamori-type interaction.
+For the <span class="math notranslate nohighlight">\(t2g\)</span>-shell case, it is parameterized by <span class="math notranslate nohighlight">\(U, J\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>l_list: list of int</strong></dt><dd><p>contains the quantum number of orbital angular momentum
-<span class="math notranslate nohighlight">\(l\)</span> for each shell.</p>
+<dt><strong>norbs: int</strong></dt><dd><p>number of orbitals (including spin).</p>
 </dd>
-<dt><strong>fk: dict of float</strong></dt><dd><p>contains all the possible Slater integrals between the shells
-in l_list, the key is a tuple of 5 ints (<span class="math notranslate nohighlight">\(k,i,j,t,u\)</span>),
-where <span class="math notranslate nohighlight">\(k\)</span> is the order,
-<span class="math notranslate nohighlight">\(i,j,t,u\)</span> are the shell indices begin with 1.</p>
+<dt><strong>U: float</strong></dt><dd><p>Hubbard <span class="math notranslate nohighlight">\(U\)</span> for electrons residing on the same orbital with opposite spin.</p>
+</dd>
+<dt><strong>J: float</strong></dt><dd><p>Hund’s coupling.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>umat: 4d array of complex</dt><dd><p>contains the Coulomb interaction tensor.</p>
+<dt>umat: 4d complex array</dt><dd><p>The calculated Coulomb interaction tensor</p>
 </dd>
 </dl>
 </dd>
@@ -266,58 +253,13 @@ where <span class="math notranslate nohighlight">\(k\)</span> is the order,
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.get_umat_slater</span></code></dt><dd></dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.get_umat_kanamori</span></code></dt><dd></dd>
 <dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.get_umat_kanamori_ge</span></code></dt><dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.get_umat_slater</span></code></dt><dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.umat_slater</span></code></dt><dd></dd>
 </dl>
 </div>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
-</pre></div>
-</div>
-<p>For only one <span class="math notranslate nohighlight">\(d\)</span>-shell</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="o">=</span><span class="p">{}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F0</span><span class="p">,</span> <span class="n">F2</span><span class="p">,</span> <span class="n">F4</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.0</span> <span class="mf">2.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">umat_d</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">umat_slater</span><span class="p">(</span><span class="n">l_list</span><span class="p">,</span> <span class="n">fk</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>For one <span class="math notranslate nohighlight">\(d\)</span>-shell and one <span class="math notranslate nohighlight">\(p\)</span>-shell</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="o">=</span><span class="p">{}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F0_dd</span><span class="p">,</span> <span class="n">F2_dd</span><span class="p">,</span> <span class="n">F4_dd</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F0_dp</span><span class="p">,</span> <span class="n">F2_dp</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">G1_dp</span><span class="p">,</span> <span class="n">G3_dp</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">F0_pp</span><span class="p">,</span> <span class="n">F2_pp</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dd</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_dd</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F4_dd</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_dp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_dp</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G1_dp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G1_dp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G3_dp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G3_dp</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_pp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_pp</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umat_dp</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">umat_slater</span><span class="p">(</span><span class="n">l_list</span><span class="p">,</span> <span class="n">fk</span><span class="p">)</span>
-</pre></div>
-</div>
+<p class="rubric">Notes</p>
+<p>The order of spin index is: up, down, up, down, …, up, down.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -522,41 +464,6 @@ G0_12, G2_12, G4_12, G6_12, F0_22, F2_22, F4_22, F6_22]</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="edrixs.coulomb_utensor.get_umat_kanamori">
-<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_kanamori</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">norbs</span></em>, <em class="sig-param"><span class="n">U</span></em>, <em class="sig-param"><span class="n">J</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_kanamori"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_kanamori" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the Coulomb interaction tensor for a Kanamori-type interaction.
-For the <span class="math notranslate nohighlight">\(t2g\)</span>-shell case, it is parameterized by <span class="math notranslate nohighlight">\(U, J\)</span>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>norbs: int</strong></dt><dd><p>number of orbitals (including spin).</p>
-</dd>
-<dt><strong>U: float</strong></dt><dd><p>Hubbard <span class="math notranslate nohighlight">\(U\)</span> for electrons residing on the same orbital with opposite spin.</p>
-</dd>
-<dt><strong>J: float</strong></dt><dd><p>Hund’s coupling.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>umat: 4d complex array</dt><dd><p>The calculated Coulomb interaction tensor</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.get_umat_kanamori_ge</span></code></dt><dd></dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.get_umat_slater</span></code></dt><dd></dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.umat_slater</span></code></dt><dd></dd>
-</dl>
-</div>
-<p class="rubric">Notes</p>
-<p>The order of spin index is: up, down, up, down, …, up, down.</p>
-</dd></dl>
-
-<dl class="py function">
 <dt id="edrixs.coulomb_utensor.get_umat_slater_3shells">
 <code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">get_umat_slater_3shells</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shell_name</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#get_umat_slater_3shells"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.get_umat_slater_3shells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given three shells, build the slater type of Coulomb tensors among
@@ -580,6 +487,99 @@ and X should be in ascending order.</p>
 </dl>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="edrixs.coulomb_utensor.umat_slater">
+<code class="sig-prename descclassname">edrixs.coulomb_utensor.</code><code class="sig-name descname">umat_slater</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">l_list</span></em>, <em class="sig-param"><span class="n">fk</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/coulomb_utensor.html#umat_slater"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.coulomb_utensor.umat_slater" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Coulomb interaction tensor which is parameterized by
+Slater integrals <span class="math notranslate nohighlight">\(F^{k}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[U_{m_{l_i}m_{s_i}, m_{l_j}m_{s_j}, m_{l_t}m_{s_t},
+m_{l_u}m_{s_u}}^{i,j,t,u}
+=\frac{1}{2} \delta_{m_{s_i},m_{s_t}}\delta_{m_{s_j},m_{s_u}}
+\delta_{m_{l_i}+m_{l_j}, m_{l_t}+m_{l_u}}
+\sum_{k}C_{l_i,l_t}(k,m_{l_i},m_{l_t})C_{l_u,l_j}
+(k,m_{l_u},m_{l_j})F^{k}_{i,j,t,u}\]</div>
+<p>where <span class="math notranslate nohighlight">\(m_s\)</span> is the magnetic quantum number for spin
+and <span class="math notranslate nohighlight">\(m_l\)</span> is the magnetic quantum number for orbital.
+<span class="math notranslate nohighlight">\(F^{k}_{i,j,t,u}\)</span> are Slater integrals.
+<span class="math notranslate nohighlight">\(C_{l_i,l_j}(k,m_{l_i},m_{l_j})\)</span> are Gaunt coefficients.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>l_list: list of int</strong></dt><dd><p>contains the quantum number of orbital angular momentum
+<span class="math notranslate nohighlight">\(l\)</span> for each shell.</p>
+</dd>
+<dt><strong>fk: dict of float</strong></dt><dd><p>contains all the possible Slater integrals between the shells
+in l_list, the key is a tuple of 5 ints (<span class="math notranslate nohighlight">\(k,i,j,t,u\)</span>),
+where <span class="math notranslate nohighlight">\(k\)</span> is the order,
+<span class="math notranslate nohighlight">\(i,j,t,u\)</span> are the shell indices begin with 1.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>umat: 4d array of complex</dt><dd><p>contains the Coulomb interaction tensor.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.get_umat_slater</span></code></dt><dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.get_umat_kanamori</span></code></dt><dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">coulomb_utensor.get_umat_kanamori_ge</span></code></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">edrixs</span>
+</pre></div>
+</div>
+<p>For only one <span class="math notranslate nohighlight">\(d\)</span>-shell</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="o">=</span><span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F0</span><span class="p">,</span> <span class="n">F2</span><span class="p">,</span> <span class="n">F4</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.0</span> <span class="mf">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">umat_d</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">umat_slater</span><span class="p">(</span><span class="n">l_list</span><span class="p">,</span> <span class="n">fk</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For one <span class="math notranslate nohighlight">\(d\)</span>-shell and one <span class="math notranslate nohighlight">\(p\)</span>-shell</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="o">=</span><span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F0_dd</span><span class="p">,</span> <span class="n">F2_dd</span><span class="p">,</span> <span class="n">F4_dd</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F0_dp</span><span class="p">,</span> <span class="n">F2_dp</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G1_dp</span><span class="p">,</span> <span class="n">G3_dp</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">F0_pp</span><span class="p">,</span> <span class="n">F2_pp</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_dd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F4_dd</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_dp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_dp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_dp</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G1_dp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G1_dp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G3_dp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">G3_dp</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F0_pp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fk</span><span class="p">[(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">F2_pp</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">umat_dp</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">umat_slater</span><span class="p">(</span><span class="n">l_list</span><span class="p">,</span> <span class="n">fk</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>

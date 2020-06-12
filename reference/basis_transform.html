@@ -27,7 +27,7 @@
         <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -245,6 +245,64 @@ dimension <span class="math notranslate nohighlight">\(10 \times 10\)</span></p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="edrixs.basis_transform.fourier_hr2hk">
+<code class="sig-prename descclassname">edrixs.basis_transform.</code><code class="sig-name descname">fourier_hr2hk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">norbs</span></em>, <em class="sig-param"><span class="n">nkpt</span></em>, <em class="sig-param"><span class="n">kvec</span></em>, <em class="sig-param"><span class="n">nrpt</span></em>, <em class="sig-param"><span class="n">rvec</span></em>, <em class="sig-param"><span class="n">deg_rpt</span></em>, <em class="sig-param"><span class="n">hr</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/basis_transform.html#fourier_hr2hk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.basis_transform.fourier_hr2hk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fourier transform a tight-binding Hamiltonian <span class="math notranslate nohighlight">\(H(r)\)</span> from
+real space to <span class="math notranslate nohighlight">\(k\)</span> space <span class="math notranslate nohighlight">\(H(k)\)</span>,
+for Wannier90.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>norbs: int</strong></dt><dd><p>Number of orbitals.</p>
+</dd>
+<dt><strong>nkpt: int</strong></dt><dd><p>Number of <span class="math notranslate nohighlight">\(k\)</span>-points.</p>
+</dd>
+<dt><strong>kvec: 2d float array</strong></dt><dd><p>Fractional coordinate for k-points.</p>
+</dd>
+<dt><strong>nrpt: int</strong></dt><dd><p>Number of r-points.</p>
+</dd>
+<dt><strong>rvec: 2d float array</strong></dt><dd><p>Fractional coordinate for r-points.</p>
+</dd>
+<dt><strong>deg_rpt: int</strong></dt><dd><p>The degenerancy for each r-point.</p>
+</dd>
+<dt><strong>hr: 3d complex array</strong></dt><dd><p>Hamiltonian in r-space.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>hk: 3d complex array</dt><dd><p>Hamiltonian in k-space.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="edrixs.basis_transform.tmat_c2j">
+<code class="sig-prename descclassname">edrixs.basis_transform.</code><code class="sig-name descname">tmat_c2j</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">orb_l</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/basis_transform.html#tmat_c2j"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.basis_transform.tmat_c2j" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the transformation matrix from the complex spherical harmonics to
+the <span class="math notranslate nohighlight">\(|j^2,j_z&gt;\)</span> basis in which the spin-oribt coupling Hamiltonian
+is diagonal. The orbital order is:</p>
+<p><span class="math notranslate nohighlight">\(|j=l-1/2, -j&gt;, |j=l-1/2, -j+1&gt;, ... |j=l-1/2, +j&gt;,\)</span></p>
+<p><span class="math notranslate nohighlight">\(|j=l+1/2, -j&gt;, |j=l+1/2, -j+1&gt;, ..., |j=l+1/2, +j&gt;\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>orb_l: int</strong></dt><dd><p>Quantum number of orbital angular momentum.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>t_c2j: 2d complex array</dt><dd><p>The transformation matrix.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="edrixs.basis_transform.tmat_c2r">
 <code class="sig-prename descclassname">edrixs.basis_transform.</code><code class="sig-name descname">tmat_c2r</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">case</span></em>, <em class="sig-param"><span class="n">ispin</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/basis_transform.html#tmat_c2r"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.basis_transform.tmat_c2r" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the unitary transformation matrix from the basis of complex
@@ -267,6 +325,27 @@ spherical harmonics to real spherical harmonics.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt>t_c2r: 2d complex array</dt><dd><p>The transformation matrix.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="edrixs.basis_transform.tmat_cub2r_f">
+<code class="sig-prename descclassname">edrixs.basis_transform.</code><code class="sig-name descname">tmat_cub2r_f</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ispin</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/basis_transform.html#tmat_cub2r_f"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.basis_transform.tmat_cub2r_f" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the transformation matrix from the cubic spherical harmonics to
+real spherical harmonics, only for <span class="math notranslate nohighlight">\(f\)</span> system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ispin: logical</strong></dt><dd><p>Whether including spin degree of freedom or not (default: False).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>t_cub2r: 2d complex array</dt><dd><p>The transformation matrix.</p>
 </dd>
 </dl>
 </dd>
@@ -325,51 +404,6 @@ point group, only for <span class="math notranslate nohighlight">\(f\)</span> sy
 </dd></dl>
 
 <dl class="py function">
-<dt id="edrixs.basis_transform.tmat_cub2r_f">
-<code class="sig-prename descclassname">edrixs.basis_transform.</code><code class="sig-name descname">tmat_cub2r_f</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ispin</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/basis_transform.html#tmat_cub2r_f"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.basis_transform.tmat_cub2r_f" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the transformation matrix from the cubic spherical harmonics to
-real spherical harmonics, only for <span class="math notranslate nohighlight">\(f\)</span> system.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>ispin: logical</strong></dt><dd><p>Whether including spin degree of freedom or not (default: False).</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>t_cub2r: 2d complex array</dt><dd><p>The transformation matrix.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="edrixs.basis_transform.tmat_c2j">
-<code class="sig-prename descclassname">edrixs.basis_transform.</code><code class="sig-name descname">tmat_c2j</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">orb_l</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/basis_transform.html#tmat_c2j"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.basis_transform.tmat_c2j" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the transformation matrix from the complex spherical harmonics to
-the <span class="math notranslate nohighlight">\(|j^2,j_z&gt;\)</span> basis in which the spin-oribt coupling Hamiltonian
-is diagonal. The orbital order is:</p>
-<p><span class="math notranslate nohighlight">\(|j=l-1/2, -j&gt;, |j=l-1/2, -j+1&gt;, ... |j=l-1/2, +j&gt;,\)</span></p>
-<p><span class="math notranslate nohighlight">\(|j=l+1/2, -j&gt;, |j=l+1/2, -j+1&gt;, ..., |j=l+1/2, +j&gt;\)</span>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>orb_l: int</strong></dt><dd><p>Quantum number of orbital angular momentum.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>t_c2j: 2d complex array</dt><dd><p>The transformation matrix.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="edrixs.basis_transform.transform_utensor">
 <code class="sig-prename descclassname">edrixs.basis_transform.</code><code class="sig-name descname">transform_utensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">umat</span></em>, <em class="sig-param"><span class="n">tmat</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/basis_transform.html#transform_utensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.basis_transform.transform_utensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform the rank-4 Coulomb interaction tensor from one basis to
@@ -386,40 +420,6 @@ another basis.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt>umat_new: 4d complex array</dt><dd><p>The Coulomb interaction tensor in the new basis.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="edrixs.basis_transform.fourier_hr2hk">
-<code class="sig-prename descclassname">edrixs.basis_transform.</code><code class="sig-name descname">fourier_hr2hk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">norbs</span></em>, <em class="sig-param"><span class="n">nkpt</span></em>, <em class="sig-param"><span class="n">kvec</span></em>, <em class="sig-param"><span class="n">nrpt</span></em>, <em class="sig-param"><span class="n">rvec</span></em>, <em class="sig-param"><span class="n">deg_rpt</span></em>, <em class="sig-param"><span class="n">hr</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/basis_transform.html#fourier_hr2hk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.basis_transform.fourier_hr2hk" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fourier transform a tight-binding Hamiltonian <span class="math notranslate nohighlight">\(H(r)\)</span> from
-real space to <span class="math notranslate nohighlight">\(k\)</span> space <span class="math notranslate nohighlight">\(H(k)\)</span>,
-for Wannier90.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>norbs: int</strong></dt><dd><p>Number of orbitals.</p>
-</dd>
-<dt><strong>nkpt: int</strong></dt><dd><p>Number of <span class="math notranslate nohighlight">\(k\)</span>-points.</p>
-</dd>
-<dt><strong>kvec: 2d float array</strong></dt><dd><p>Fractional coordinate for k-points.</p>
-</dd>
-<dt><strong>nrpt: int</strong></dt><dd><p>Number of r-points.</p>
-</dd>
-<dt><strong>rvec: 2d float array</strong></dt><dd><p>Fractional coordinate for r-points.</p>
-</dd>
-<dt><strong>deg_rpt: int</strong></dt><dd><p>The degenerancy for each r-point.</p>
-</dd>
-<dt><strong>hr: 3d complex array</strong></dt><dd><p>Hamiltonian in r-space.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>hk: 3d complex array</dt><dd><p>Hamiltonian in k-space.</p>
 </dd>
 </dl>
 </dd>

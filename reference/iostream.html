@@ -27,7 +27,7 @@
         <script src="../_static/language_data.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -174,101 +174,6 @@
   <div class="section" id="module-edrixs.iostream">
 <span id="iostream"></span><h1>iostream<a class="headerlink" href="#module-edrixs.iostream" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="edrixs.iostream.write_tensor">
-<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_tensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tensor</span></em>, <em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">only_nonzeros</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-10</span></em>, <em class="sig-param"><span class="n">fmt_int</span><span class="o">=</span><span class="default_value">'{:10d}'</span></em>, <em class="sig-param"><span class="n">fmt_float</span><span class="o">=</span><span class="default_value">'{:.15f}'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_tensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write <span class="math notranslate nohighlight">\(n\)</span> -dimension numpy array to file, currently, <span class="math notranslate nohighlight">\(n\)</span> can be 1, 2, 3, 4, 5.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>tensor: :math:`n` d float or complex array</strong></dt><dd><p>The array needs to be written.</p>
-</dd>
-<dt><strong>fname: str</strong></dt><dd><p>File name.</p>
-</dd>
-<dt><strong>only_nonzeros: logical (default: False)</strong></dt><dd><p>Only write nonzero elements.</p>
-</dd>
-<dt><strong>tol: float (default: 1E-10)</strong></dt><dd><p>Only write the elements when their absolute value are larger than tol
-and only_nonzeros=True.</p>
-</dd>
-<dt><strong>fmt_int: str (default: ‘{:10d}’)</strong></dt><dd><p>The format for printing integer numbers.</p>
-</dd>
-<dt><strong>fmt_float: str (default: ‘{:.15f}’)</strong></dt><dd><p>The format for printing float numbers.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="edrixs.iostream.write_emat">
-<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_emat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">emat</span></em>, <em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-12</span></em>, <em class="sig-param"><span class="n">fmt_int</span><span class="o">=</span><span class="default_value">'{:10d}'</span></em>, <em class="sig-param"><span class="n">fmt_float</span><span class="o">=</span><span class="default_value">'{:.15f}'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_emat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_emat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the nonzeros of the rank-2 hopping matrices to file.
-The first line is the number of nonzeros, and the following lines are the nonzero elements.
-This file will be read by ed.x, xas.x or rixs.x.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>emat: 2d complex array</strong></dt><dd><p>The array to be written.</p>
-</dd>
-<dt><strong>fname: str</strong></dt><dd><p>File name.</p>
-</dd>
-<dt><strong>tol: float</strong></dt><dd><p>Precision.</p>
-</dd>
-<dt><strong>fmt_int: str (default: ‘{:10d}’)</strong></dt><dd><p>Format for printing integer numbers.</p>
-</dd>
-<dt><strong>fmt_float: str (default: ‘{:.15f}’)</strong></dt><dd><p>Format for printing float numbers.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="edrixs.iostream.write_umat">
-<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_umat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">umat</span></em>, <em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-12</span></em>, <em class="sig-param"><span class="n">fmt_int</span><span class="o">=</span><span class="default_value">'{:10d}'</span></em>, <em class="sig-param"><span class="n">fmt_float</span><span class="o">=</span><span class="default_value">'{:.15f}'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_umat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_umat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the nonzeros of the rank-4 Coulomb U tensor to file.
-The first line is the number of nonzeros, and the following lines are the nonzero elements.
-This file will be read by ed.x, xas.x or rixs.x.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>umat: 4d complex array</strong></dt><dd><p>The array to be written.</p>
-</dd>
-<dt><strong>fname: str</strong></dt><dd><p>File name.</p>
-</dd>
-<dt><strong>tol: float (default: 1E-12)</strong></dt><dd><p>Precision.</p>
-</dd>
-<dt><strong>fmt_int: str (default: ‘{:10d}’)</strong></dt><dd><p>Format for printing integer numbers.</p>
-</dd>
-<dt><strong>fmt_float: str (default: ‘{:.15f}’)</strong></dt><dd><p>Format for printing float numbers.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="edrixs.iostream.write_config">
-<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">ed_solver</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">num_val_orbs</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">num_core_orbs</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">neval</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">nvector</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">ncv</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">idump</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">num_gs</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">maxiter</span><span class="o">=</span><span class="default_value">500</span></em>, <em class="sig-param"><span class="n">linsys_max</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">min_ndim</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">nkryl</span><span class="o">=</span><span class="default_value">500</span></em>, <em class="sig-param"><span class="n">eigval_tol</span><span class="o">=</span><span class="default_value">1e-08</span></em>, <em class="sig-param"><span class="n">linsys_tol</span><span class="o">=</span><span class="default_value">1e-10</span></em>, <em class="sig-param"><span class="n">omega_in</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">gamma_in</span><span class="o">=</span><span class="default_value">0.1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write control parameters in config.in file for ed_fsolver.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="edrixs.iostream.read_poles_from_file">
-<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">read_poles_from_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_list</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#read_poles_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.read_poles_from_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read informations in files xas_poles.n or rixs_poles.n to a dict.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>file_list: list of strings</strong></dt><dd><p>Names of pole files.</p>
-</dd>
-<dt><strong>pole_dict: dict</strong></dt><dd><p>A dict containing information of poles.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt id="edrixs.iostream.dump_poles">
 <code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">dump_poles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">'poles'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#dump_poles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.dump_poles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump the objects of poles returned from XAS or RIXS calculations to file for later plotting.</p>
@@ -297,6 +202,101 @@ This file will be read by ed.x, xas.x or rixs.x.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
 <dt>obj: Python objects</dt><dd><p>Poles object.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="edrixs.iostream.read_poles_from_file">
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">read_poles_from_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_list</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#read_poles_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.read_poles_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read informations in files xas_poles.n or rixs_poles.n to a dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>file_list: list of strings</strong></dt><dd><p>Names of pole files.</p>
+</dd>
+<dt><strong>pole_dict: dict</strong></dt><dd><p>A dict containing information of poles.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="edrixs.iostream.write_config">
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">directory</span><span class="o">=</span><span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">ed_solver</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">num_val_orbs</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">num_core_orbs</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">neval</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">nvector</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">ncv</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">idump</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">num_gs</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">maxiter</span><span class="o">=</span><span class="default_value">500</span></em>, <em class="sig-param"><span class="n">linsys_max</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">min_ndim</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">nkryl</span><span class="o">=</span><span class="default_value">500</span></em>, <em class="sig-param"><span class="n">eigval_tol</span><span class="o">=</span><span class="default_value">1e-08</span></em>, <em class="sig-param"><span class="n">linsys_tol</span><span class="o">=</span><span class="default_value">1e-10</span></em>, <em class="sig-param"><span class="n">omega_in</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">gamma_in</span><span class="o">=</span><span class="default_value">0.1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write control parameters in config.in file for ed_fsolver.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="edrixs.iostream.write_emat">
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_emat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">emat</span></em>, <em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-12</span></em>, <em class="sig-param"><span class="n">fmt_int</span><span class="o">=</span><span class="default_value">'{:10d}'</span></em>, <em class="sig-param"><span class="n">fmt_float</span><span class="o">=</span><span class="default_value">'{:.15f}'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_emat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_emat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the nonzeros of the rank-2 hopping matrices to file.
+The first line is the number of nonzeros, and the following lines are the nonzero elements.
+This file will be read by ed.x, xas.x or rixs.x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>emat: 2d complex array</strong></dt><dd><p>The array to be written.</p>
+</dd>
+<dt><strong>fname: str</strong></dt><dd><p>File name.</p>
+</dd>
+<dt><strong>tol: float</strong></dt><dd><p>Precision.</p>
+</dd>
+<dt><strong>fmt_int: str (default: ‘{:10d}’)</strong></dt><dd><p>Format for printing integer numbers.</p>
+</dd>
+<dt><strong>fmt_float: str (default: ‘{:.15f}’)</strong></dt><dd><p>Format for printing float numbers.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="edrixs.iostream.write_tensor">
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_tensor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tensor</span></em>, <em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">only_nonzeros</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-10</span></em>, <em class="sig-param"><span class="n">fmt_int</span><span class="o">=</span><span class="default_value">'{:10d}'</span></em>, <em class="sig-param"><span class="n">fmt_float</span><span class="o">=</span><span class="default_value">'{:.15f}'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_tensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write <span class="math notranslate nohighlight">\(n\)</span> -dimension numpy array to file, currently, <span class="math notranslate nohighlight">\(n\)</span> can be 1, 2, 3, 4, 5.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>tensor: :math:`n` d float or complex array</strong></dt><dd><p>The array needs to be written.</p>
+</dd>
+<dt><strong>fname: str</strong></dt><dd><p>File name.</p>
+</dd>
+<dt><strong>only_nonzeros: logical (default: False)</strong></dt><dd><p>Only write nonzero elements.</p>
+</dd>
+<dt><strong>tol: float (default: 1E-10)</strong></dt><dd><p>Only write the elements when their absolute value are larger than tol
+and only_nonzeros=True.</p>
+</dd>
+<dt><strong>fmt_int: str (default: ‘{:10d}’)</strong></dt><dd><p>The format for printing integer numbers.</p>
+</dd>
+<dt><strong>fmt_float: str (default: ‘{:.15f}’)</strong></dt><dd><p>The format for printing float numbers.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="edrixs.iostream.write_umat">
+<code class="sig-prename descclassname">edrixs.iostream.</code><code class="sig-name descname">write_umat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">umat</span></em>, <em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">1e-12</span></em>, <em class="sig-param"><span class="n">fmt_int</span><span class="o">=</span><span class="default_value">'{:10d}'</span></em>, <em class="sig-param"><span class="n">fmt_float</span><span class="o">=</span><span class="default_value">'{:.15f}'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/iostream.html#write_umat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.iostream.write_umat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the nonzeros of the rank-4 Coulomb U tensor to file.
+The first line is the number of nonzeros, and the following lines are the nonzero elements.
+This file will be read by ed.x, xas.x or rixs.x.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>umat: 4d complex array</strong></dt><dd><p>The array to be written.</p>
+</dd>
+<dt><strong>fname: str</strong></dt><dd><p>File name.</p>
+</dd>
+<dt><strong>tol: float (default: 1E-12)</strong></dt><dd><p>Precision.</p>
+</dd>
+<dt><strong>fmt_int: str (default: ‘{:10d}’)</strong></dt><dd><p>Format for printing integer numbers.</p>
+</dd>
+<dt><strong>fmt_float: str (default: ‘{:.15f}’)</strong></dt><dd><p>Format for printing float numbers.</p>
 </dd>
 </dl>
 </dd>
