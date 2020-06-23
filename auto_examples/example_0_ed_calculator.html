@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Exact diagonalization &mdash; edrixs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="edrixs Reference" href="../reference/index.html" />
+    <link rel="prev" title="EDRIXS examples" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> edrixs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">edrixs User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">EDRIXS examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exact diagonalization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coulomb-interactions">Coulomb interactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-basis">Create basis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transform-interactions-into-fock-basis">Transform interactions into Fock basis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagonalize-the-matrix">Diagonalize the matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computing-expectation-values">Computing expectation values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spin-orbit-coupling">Spin orbit coupling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">edrixs Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-history.html">Release History</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">edrixs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">EDRIXS examples</a> &raquo;</li>
+        
+      <li>Exact diagonalization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/auto_examples/example_0_ed_calculator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-example-0-ed-calculator-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="exact-diagonalization">
+<span id="sphx-glr-auto-examples-example-0-ed-calculator-py"></span><h1>Exact diagonalization<a class="headerlink" href="#exact-diagonalization" title="Permalink to this headline">¶</a></h1>
+<p>Here we show how to find the eigenvalues and eigenvectors of a many-body
+Hamiltonian of fermions with Coulomb interactions. We then determine their spin
+and orbital angular momentum and how this changes when we switch on spin-orbit
+coupling.</p>
+<p>Import the necessary modules.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">edrixs</span>
+</pre></div>
+</div>
+<div class="section" id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<p>Define the orbital angular momentum number <span class="math notranslate nohighlight">\(l=1\)</span> (i.e. a <cite>p</cite> shell),
+the number of orbitals, the orbital occupancy and the Slater integrals.
+<span class="math notranslate nohighlight">\(F^{k}\)</span> with <span class="math notranslate nohighlight">\(k=0,2\)</span>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">norb</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">noccu</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">F0</span><span class="p">,</span> <span class="n">F2</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="coulomb-interactions">
+<h2>Coulomb interactions<a class="headerlink" href="#coulomb-interactions" title="Permalink to this headline">¶</a></h2>
+<p>The Coulomb interactions enter the Hamiltonain as</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\begin{equation*}
+\hat{H} = \sum_{i, j, t, u}
+U_{m_{l_i}m_{s_i}, m_{l_j}m_{s_j}, m_{l_t}m_{s_t},
+m_{l_u}m_{s_u}}^{i,j,t,u}
+\end{equation*}\]</div>
+</div></blockquote>
+<p>which is parameterized by tensor</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+U_{m_{l_i}m_{s_i}, m_{l_j}m_{s_j}, m_{l_t}m_{s_t},
+m_{l_u}m_{s_u}}^{i,j,t,u}
+= \\ \frac{1}{2} \delta_{m_{s_i},m_{s_t}}\delta_{m_{s_j},m_{s_u}}
+\delta_{m_{l_i}+m_{l_j}, m_{l_t}+m_{l_u}}
+\sum_{k}C_{l_i,l_t}(k,m_{l_i},m_{l_t})C_{l_u,l_j}
+(k,m_{l_u},m_{l_j})F^{k}_{i,j,t,u}
+\end{gather*}\end{split}\]</div>
+</div></blockquote>
+<p>where <span class="math notranslate nohighlight">\(m_s\)</span> is the magnetic quantum number for spin
+and <span class="math notranslate nohighlight">\(m_l\)</span> is the quantum number for orbitals.
+<span class="math notranslate nohighlight">\(F^{k}_{i,j,t,u}\)</span> are Slater integrals.
+<span class="math notranslate nohighlight">\(C_{l_i,l_j}(k,m_{l_i},m_{l_j})\)</span> are Gaunt coefficients. We can
+construct the matrix via</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">umat</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">get_umat_slater</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">F0</span><span class="p">,</span> <span class="n">F2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-basis">
+<h2>Create basis<a class="headerlink" href="#create-basis" title="Permalink to this headline">¶</a></h2>
+<p>Now we build the binary form of the Fock basis <span class="math notranslate nohighlight">\(|F&gt;\)</span> (we consider it
+preferable to use the standard <span class="math notranslate nohighlight">\(F\)</span> and trust the reader to avoid confusing
+it with the Slater parameters.)
+The Fock basis is the simplest legitimate form for the basis and it consists
+of a series of 1s and 0s where 1 means occupied and
+0 means  empty.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">basis</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">get_fock_bin_by_N</span><span class="p">(</span><span class="n">norb</span><span class="p">,</span> <span class="n">noccu</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span><span class="n">basis</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Note that in more complicated problems with both valence and core
+electrons, the edrixs convention is to list the valence electrons first.</p>
+</div>
+<div class="section" id="transform-interactions-into-fock-basis">
+<h2>Transform interactions into Fock basis<a class="headerlink" href="#transform-interactions-into-fock-basis" title="Permalink to this headline">¶</a></h2>
+<p>edrixs works by creating a Hamiltonian matrix <span class="math notranslate nohighlight">\(\hat{H}\)</span> transformed into
+this Fock basis. These are four fermion interactions with this form</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{H} = &lt;F_l|\sum_{ij}U_{ijkl}\hat{f}_{i}^{\dagger}\hat{f}_{j}^{\dagger}
+ \hat{f}_{k}\hat{f}_{l}|F_r&gt;\]</div>
+</div></blockquote>
+<p>generated as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_fermion</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">build_opers</span><span class="p">(</span><span class="n">n_fermion</span><span class="p">,</span> <span class="n">umat</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We needed to specify <code class="code docutils literal notranslate"><span class="pre">n_fermion</span> <span class="pre">=</span> <span class="pre">4</span></code> because the
+<code class="code docutils literal notranslate"><span class="pre">edrixs.build_opers</span></code> function can also make two fermion terms.</p>
+</div>
+<div class="section" id="diagonalize-the-matrix">
+<h2>Diagonalize the matrix<a class="headerlink" href="#diagonalize-the-matrix" title="Permalink to this headline">¶</a></h2>
+<p>For a small problem such as this it is convenient to use the native
+<a class="reference external" href="https://scipy.org">scipy</a> diagonalization routine. This returns eigenvalues
+<code class="code docutils literal notranslate"><span class="pre">e</span></code> and eignvectors <code class="code docutils literal notranslate"><span class="pre">v</span></code> where eigenvalue <code class="code docutils literal notranslate"><span class="pre">e[i]</span></code> corresponds
+to eigenvector :code:v[:,i].</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eigh.html#scipy.linalg.eigh" title="scipy.linalg.eigh" class="sphx-glr-backref-module-scipy-linalg sphx-glr-backref-type-py-function"><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span></a><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> eignvalues and </span><span class="si">{}</span><span class="s2"> eigvenvectors </span><span class="si">{}</span><span class="s2"> elements long.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
+                                                                    <span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                                                    <span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="computing-expectation-values">
+<h2>Computing expectation values<a class="headerlink" href="#computing-expectation-values" title="Permalink to this headline">¶</a></h2>
+<p>To interpret the results, it is informative to compute the expectations values
+of the spin <span class="math notranslate nohighlight">\(S^2\)</span>, orbital <span class="math notranslate nohighlight">\(L^2\)</span>,
+and total <span class="math notranslate nohighlight">\(J^2\)</span>, angular momentum. We first load the relevant matrices
+for these quantities for a <cite>p</cite> atomic shell.  We need to specifiy that we’d
+like to include spin when loading the obital operator.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">orb_mom</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">get_orb_momentum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">spin_mom</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">get_spin_momentum</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="n">tot_mom</span> <span class="o">=</span> <span class="n">orb_mom</span> <span class="o">+</span> <span class="n">spin_mom</span>
+</pre></div>
+</div>
+<p>We again transform these matrices to our Fock basis to build the operators</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_fermion</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">opL</span><span class="p">,</span> <span class="n">opS</span><span class="p">,</span> <span class="n">opJ</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">build_opers</span><span class="p">(</span><span class="n">n_fermion</span><span class="p">,</span> <span class="p">[</span><span class="n">orb_mom</span><span class="p">,</span> <span class="n">spin_mom</span><span class="p">,</span> <span class="n">tot_mom</span><span class="p">],</span> <span class="n">basis</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The squares are computed as</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\begin{split}S^2 = S^2_x + S^2_y + S^2_z\\
+L^2 = L^2_x + L^2_y + L^2_z\\
+J^2 = J^2_x + J^2_y + J^2_z\end{split}\]</div>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L2</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">opL</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">opL</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">opL</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">opL</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">opL</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">opL</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">S2</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">opS</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">opS</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">opS</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">opS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">opS</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">opS</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">J2</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">opJ</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">opJ</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">opJ</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">opJ</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot" title="numpy.dot" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">dot</span></a><span class="p">(</span><span class="n">opJ</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">opJ</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>We can print out the values as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L2_val</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">cb_op</span><span class="p">(</span><span class="n">L2</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">.</span><span class="n">real</span>
+<span class="n">S2_val</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">cb_op</span><span class="p">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">.</span><span class="n">real</span>
+<span class="n">J2_val</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">cb_op</span><span class="p">(</span><span class="n">J2</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">.</span><span class="n">real</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:&lt;3s}</span><span class="se">\t</span><span class="si">{:&gt;8s}</span><span class="se">\t</span><span class="si">{:&gt;8s}</span><span class="se">\t</span><span class="si">{:&gt;8s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;#  &quot;</span><span class="p">,</span> <span class="s2">&quot;E  &quot;</span><span class="p">,</span> <span class="s2">&quot;S(S+1)&quot;</span><span class="p">,</span> <span class="s2">&quot;L(L+1)&quot;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">eigenvalue</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+    <span class="n">values_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">eigenvalue</span><span class="p">,</span> <span class="n">S2_val</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">L2_val</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:&lt;3d}</span><span class="se">\t</span><span class="si">{:8.3f}</span><span class="se">\t</span><span class="si">{:8.3f}</span><span class="se">\t</span><span class="si">{:8.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">values_list</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>We see <cite>S=0</cite> and <cite>S=1</cite> states and similary <cite>L=0</cite> and <cite>L=1</cite>. The high-spin
+states have lower energy in accordance with Hund’s rules.</p>
+</div>
+<div class="section" id="spin-orbit-coupling">
+<h2>Spin orbit coupling<a class="headerlink" href="#spin-orbit-coupling" title="Permalink to this headline">¶</a></h2>
+<p>For fun, we can see how this changes when we add spin orbit coupling (SOC).
+This is a two-fermion operator that we create, transform into the Fock basis
+and add to the prior Hamiltonain.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">soc</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">atom_hsoc</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">n_fermion</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">H2</span> <span class="o">=</span> <span class="n">H</span> <span class="o">+</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">build_opers</span><span class="p">(</span><span class="n">n_fermion</span><span class="p">,</span> <span class="n">soc</span><span class="p">,</span> <span class="n">basis</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then, we redo the diagonalization and print the results.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e2</span><span class="p">,</span> <span class="n">v2</span> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eigh.html#scipy.linalg.eigh" title="scipy.linalg.eigh" class="sphx-glr-backref-module-scipy-linalg sphx-glr-backref-type-py-function"><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span></a><span class="p">(</span><span class="n">H2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;With SOC&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:&lt;3s}</span><span class="se">\t</span><span class="si">{:&gt;8s}</span><span class="se">\t</span><span class="si">{:&gt;8s}</span><span class="se">\t</span><span class="si">{:&gt;8s}</span><span class="se">\t</span><span class="si">{:&gt;8s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;S(S+1)&quot;</span><span class="p">,</span> <span class="s2">&quot;L(L+1)&quot;</span><span class="p">,</span> <span class="s2">&quot;J(J+1)&quot;</span><span class="p">))</span>
+<span class="n">J2_val_soc</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">cb_op</span><span class="p">(</span><span class="n">J2</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">.</span><span class="n">real</span>
+<span class="n">L2_val_soc</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">cb_op</span><span class="p">(</span><span class="n">L2</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">.</span><span class="n">real</span>
+<span class="n">S2_val_soc</span> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">cb_op</span><span class="p">(</span><span class="n">S2</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">()</span><span class="o">.</span><span class="n">real</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">eigenvalue</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">e2</span><span class="p">):</span>
+    <span class="n">values_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">eigenvalue</span><span class="p">,</span> <span class="n">S2_val_soc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">L2_val_soc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">J2_val_soc</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:&lt;3d}</span><span class="se">\t</span><span class="si">{:8.3f}</span><span class="se">\t</span><span class="si">{:8.3f}</span><span class="se">\t</span><span class="si">{:8.3f}</span><span class="se">\t</span><span class="si">{:8.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">values_list</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Quantum number <cite>J</cite> now has values from 0, 1, 2 and since the shell is less
+than half full, Hund’s rules dictate that the minimum <cite>J</cite> has the lowest
+energy.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#  show a nice image for the index</span>
+<span class="c1"># sphinx_gallery_thumbnail_path = &#39;_static/calculator.jpg&#39;</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-example-0-ed-calculator-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/a366641f5cade924791a73ee6d78cee6/example_0_ed_calculator.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">example_0_ed_calculator.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/6cd93e346e243a1950ba57feae08db0a/example_0_ed_calculator.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">example_0_ed_calculator.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../reference/index.html" class="btn btn-neutral float-right" title="edrixs Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="EDRIXS examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Brookhaven National Lab
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
