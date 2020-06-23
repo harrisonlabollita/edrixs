@@ -848,6 +848,41 @@
     <span class="n">cf</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">cb_op</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">tmat_r2c</span><span class="p">(</span><span class="s1">&#39;t2g&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">cf</span></div>
+
+
+<span class="k">def</span> <span class="nf">cf_tetragonal_t2g</span><span class="p">(</span><span class="n">ten_dq</span><span class="p">,</span> <span class="n">d1</span><span class="p">,</span> <span class="n">d3</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given 10Dq, d1, d3, return tetragonal crystal field matrix for t2g orbitals</span>
+<span class="sd">    in the complex harmonics basis.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ten_dq: float scalar</span>
+<span class="sd">        Parameter used to label cubic crystal splitting.</span>
+<span class="sd">    d1: float scalar</span>
+<span class="sd">        Paramter used to label tetragonal splitting.</span>
+<span class="sd">    d3: float scalar</span>
+<span class="sd">        Paramter used to label tetragonal splitting.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cf: 2d complex array, shape=(6, 6)</span>
+<span class="sd">        The matrix form of crystal field Hamiltonian in complex harmonics basis.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="mf">3.0</span> <span class="o">*</span> <span class="n">d3</span> <span class="o">-</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">d1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">35</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="p">(</span><span class="n">d3</span> <span class="o">+</span> <span class="n">d1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">7.0</span>
+    <span class="n">dq</span> <span class="o">=</span> <span class="n">ten_dq</span> <span class="o">/</span> <span class="mf">10.0</span>
+
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex</span><span class="p">)</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="n">dq</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">ds</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">dt</span>  <span class="c1"># dxz</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="n">dq</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">ds</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">dt</span>  <span class="c1"># dyz</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span> <span class="o">*</span> <span class="n">dq</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">ds</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">dt</span>  <span class="c1"># dxy</span>
+
+    <span class="n">cf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex</span><span class="p">)</span>
+    <span class="n">cf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tmp</span>
+    <span class="n">cf</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tmp</span>
+    <span class="n">cf</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">cb_op</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">tmat_r2c</span><span class="p">(</span><span class="s1">&#39;t2g&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">cf</span>
 </pre></div>
 
            </div>
