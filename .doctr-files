@@ -21,6 +21,7 @@
 ./_modules/index.html
 ./_sources/auto_examples/example_0_ed_calculator.rst.txt
 ./_sources/auto_examples/index.rst.txt
+./_sources/auto_examples/sg_execution_times.rst.txt
 ./_sources/index.rst.txt
 ./_sources/reference/angular_momentum.rst.txt
 ./_sources/reference/basis_transform.rst.txt
@@ -144,6 +145,7 @@
 ./_static/underscore.js
 ./auto_examples/example_0_ed_calculator.html
 ./auto_examples/index.html
+./auto_examples/sg_execution_times.html
 ./genindex.html
 ./index.html
 ./objects.inv

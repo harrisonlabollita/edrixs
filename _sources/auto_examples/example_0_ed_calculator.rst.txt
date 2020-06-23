@@ -26,6 +26,12 @@ Import the necessary modules.
     import edrixs    
     
 
+
+
+
+
+
+
 Parameters
 ------------------------------------------------------------------------------
 Define the orbital angular momentum number :math:`l=1` (i.e. a `p` shell),
@@ -39,6 +45,12 @@ the number of orbitals, the orbital occupancy and the Slater integrals.
     norb = 6
     noccu = 2
     F0, F2 = 4.0, 1.0
+
+
+
+
+
+
 
 
 Coulomb interactions
@@ -76,6 +88,12 @@ construct the matrix via
     umat = edrixs.get_umat_slater('p', F0, F2)
 
 
+
+
+
+
+
+
 Create basis
 ------------------------------------------------------------------------------
 Now we build the binary form of the Fock basis :math:`|F>` (we consider it
@@ -90,6 +108,34 @@ of a series of 1s and 0s where 1 means occupied and
 
     basis = edrixs.get_fock_bin_by_N(norb, noccu)
     print(np.array(basis))
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    [[1 1 0 0 0 0]
+     [1 0 1 0 0 0]
+     [1 0 0 1 0 0]
+     [1 0 0 0 1 0]
+     [1 0 0 0 0 1]
+     [0 1 1 0 0 0]
+     [0 1 0 1 0 0]
+     [0 1 0 0 1 0]
+     [0 1 0 0 0 1]
+     [0 0 1 1 0 0]
+     [0 0 1 0 1 0]
+     [0 0 1 0 0 1]
+     [0 0 0 1 1 0]
+     [0 0 0 1 0 1]
+     [0 0 0 0 1 1]]
+
+
 
 
 Note that in more complicated problems with both valence and core
@@ -113,6 +159,12 @@ generated as
     H = edrixs.build_opers(n_fermion, umat, basis)
 
 
+
+
+
+
+
+
 We needed to specify :code:`n_fermion = 4` because the
 :code:`edrixs.build_opers` function can also make two fermion terms.
 
@@ -132,6 +184,20 @@ to eigenvector :code:v[:,i].
                                                                         v.shape[0]))
 
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    15 eignvalues and 15 eigvenvectors 15 elements long.
+
+
+
+
 Computing expectation values
 ------------------------------------------------------------------------------
 To interpret the results, it is informative to compute the expectations values
@@ -148,6 +214,12 @@ like to include spin when loading the obital operator.
     tot_mom = orb_mom + spin_mom
 
 
+
+
+
+
+
+
 We again transform these matrices to our Fock basis to build the operators
 
 
@@ -155,6 +227,12 @@ We again transform these matrices to our Fock basis to build the operators
 
     n_fermion = 2
     opL, opS, opJ = edrixs.build_opers(n_fermion, [orb_mom, spin_mom, tot_mom], basis)
+
+
+
+
+
+
 
 
 The squares are computed as
@@ -173,6 +251,12 @@ The squares are computed as
     J2 = np.dot(opJ[0], opJ[0]) + np.dot(opJ[1], opJ[1]) + np.dot(opJ[2], opJ[2])
 
 
+
+
+
+
+
+
 We can print out the values as follows
 
 
@@ -185,6 +269,35 @@ We can print out the values as follows
     for i, eigenvalue in enumerate(e):
         values_list = [i, eigenvalue, S2_val[i], L2_val[i]]
         print("{:<3d}\t{:8.3f}\t{:8.3f}\t{:8.3f}".format(*values_list))
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    #            E            S(S+1)          L(L+1)
+    0          3.800           2.000           2.000
+    1          3.800           2.000           2.000
+    2          3.800           2.000           2.000
+    3          3.800           2.000           2.000
+    4          3.800           2.000           2.000
+    5          3.800           2.000           2.000
+    6          3.800           2.000           2.000
+    7          3.800           2.000           2.000
+    8          3.800           2.000           2.000
+    9          4.040           0.000           6.000
+    10         4.040           0.000           6.000
+    11         4.040           0.000           6.000
+    12         4.040           0.000           6.000
+    13         4.040           0.000           6.000
+    14         4.400           0.000          -0.000
+
+
 
 
 We see `S=0` and `S=1` states and similary `L=0` and `L=1`. The high-spin
@@ -204,6 +317,12 @@ and add to the prior Hamiltonain.
     H2 = H + edrixs.build_opers(n_fermion, soc, basis)
 
 
+
+
+
+
+
+
 Then, we redo the diagonalization and print the results.
 
 
@@ -220,6 +339,36 @@ Then, we redo the diagonalization and print the results.
         print("{:<3d}\t{:8.3f}\t{:8.3f}\t{:8.3f}\t{:8.3f}".format(*values_list))
 
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    With SOC
+    #              E          S(S+1)          L(L+1)          J(J+1)
+    0          3.510           1.816           1.816          -0.000
+    1          3.700           2.000           2.000           2.000
+    2          3.700           2.000           2.000           2.000
+    3          3.700           2.000           2.000           2.000
+    4          3.812           1.444           3.113           6.000
+    5          3.812           1.444           3.113           6.000
+    6          3.812           1.444           3.113           6.000
+    7          3.812           1.444           3.113           6.000
+    8          3.812           1.444           3.113           6.000
+    9          4.128           0.556           4.887           6.000
+    10         4.128           0.556           4.887           6.000
+    11         4.128           0.556           4.887           6.000
+    12         4.128           0.556           4.887           6.000
+    13         4.128           0.556           4.887           6.000
+    14         4.490           0.184           0.184          -0.000
+
+
+
+
 Quantum number `J` now has values from 0, 1, 2 and since the shell is less
 than half full, Hund's rules dictate that the minimum `J` has the lowest
 energy.
@@ -233,9 +382,15 @@ energy.
     # sphinx_gallery_thumbnail_path = '_static/calculator.jpg'
 
 
+
+
+
+
+
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.000 seconds)
+   **Total running time of the script:** ( 0 minutes  0.038 seconds)
 
 
 .. _sphx_glr_download_auto_examples_example_0_ed_calculator.py:
