@@ -22,9 +22,11 @@ Import the necessary modules.
 .. code-block:: default
 
     import numpy as np
+    import matplotlib.pyplot as plt
     import scipy
-    import edrixs    
-    
+    import edrixs
+    from scipy.special import comb
+
 
 
 
@@ -97,18 +99,17 @@ construct the matrix via
 Create basis
 ------------------------------------------------------------------------------
 Now we build the binary form of the Fock basis :math:`|F>` (we consider it
-preferable to use the standard :math:`F` and trust the reader to avoid confusing
-it with the Slater parameters.)
+preferable to use the standard :math:`F` and trust the reader to avoid
+confusing it with the Slater parameters.)
 The Fock basis is the simplest legitimate form for the basis and it consists
 of a series of 1s and 0s where 1 means occupied and
-0 means  empty.
+0 means  empty. These are in order up, down, up, down, up, down.
 
 
 .. code-block:: default
 
     basis = edrixs.get_fock_bin_by_N(norb, noccu)
     print(np.array(basis))
-
 
 
 
@@ -138,6 +139,31 @@ of a series of 1s and 0s where 1 means occupied and
 
 
 
+We expect the number of these states to be given by the mathematical
+combination of two electrons distributed among six states (three orbitals
+with two spins per orbital).
+
+
+.. code-block:: default
+
+    message = ("We predict C(norb={}, noccu={})={:.0f} states and we got {:d}, "
+               "which is reassuring!")
+    print(message.format(norb, noccu, comb(norb, noccu), len(basis)))
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ Out:
+
+ .. code-block:: none
+
+    We predict C(norb=6, noccu=2)=15 states and we got 15, which is reassuring!
+
+
+
+
 Note that in more complicated problems with both valence and core
 electrons, the edrixs convention is to list the valence electrons first.
 
@@ -147,8 +173,9 @@ edrixs works by creating a Hamiltonian matrix :math:`\hat{H}` transformed into
 this Fock basis. These are four fermion interactions with this form
 
     .. math::
-       \hat{H} = <F_l|\sum_{ij}U_{ijkl}\hat{f}_{i}^{\dagger}\hat{f}_{j}^{\dagger}
-        \hat{f}_{k}\hat{f}_{l}|F_r>
+       \hat{H} = <F_l|\sum_{ij}U_{ijkl}\hat{f}_{i}^{\dagger}
+                 \hat{f}_{j}^{\dagger}
+                 \hat{f}_{k}\hat{f}_{l}|F_r>
 
 generated as
 
@@ -173,7 +200,7 @@ Diagonalize the matrix
 For a small problem such as this it is convenient to use the native
 `scipy <https://scipy.org>`_ diagonalization routine. This returns eigenvalues
 :code:`e` and eignvectors :code:`v` where eigenvalue :code:`e[i]` corresponds
-to eigenvector :code:v[:,i].
+to eigenvector :code:`v[:,i]`.
 
 
 .. code-block:: default
@@ -201,10 +228,10 @@ to eigenvector :code:v[:,i].
 Computing expectation values
 ------------------------------------------------------------------------------
 To interpret the results, it is informative to compute the expectations values
-of the spin :math:`S^2`, orbital :math:`L^2`,
-and total :math:`J^2`, angular momentum. We first load the relevant matrices
-for these quantities for a `p` atomic shell.  We need to specifiy that we'd
-like to include spin when loading the obital operator.
+related to the spin :math:`\mathbf{S}`, orbital :math:`\mathbf{L}`,
+and total :math:`\mathbf{J}`, angular momentum. We first load the relevant
+matrices for these quantities for a `p` atomic shell.  We need to specifiy
+that we would like to include spin when loading the orbital operator.
 
 
 .. code-block:: default
@@ -226,7 +253,8 @@ We again transform these matrices to our Fock basis to build the operators
 .. code-block:: default
 
     n_fermion = 2
-    opL, opS, opJ = edrixs.build_opers(n_fermion, [orb_mom, spin_mom, tot_mom], basis)
+    opL, opS, opJ = edrixs.build_opers(n_fermion, [orb_mom, spin_mom, tot_mom],
+                                       basis)
 
 
 
@@ -235,12 +263,14 @@ We again transform these matrices to our Fock basis to build the operators
 
 
 
-The squares are computed as
+Recall that quantum mechanics forbids us from knowing all three Cartesian
+components of angular momentum at once, so we want to compute the squares of
+these operators i.e.
 
     .. math::
-       S^2 = S^2_x + S^2_y + S^2_z\\
-       L^2 = L^2_x + L^2_y + L^2_z\\
-       J^2 = J^2_x + J^2_y + J^2_z
+       \mathbf{S}^2 = S^2_x + S^2_y + S^2_z\\
+       \mathbf{L}^2 = L^2_x + L^2_y + L^2_z\\
+       \mathbf{J}^2 = J^2_x + J^2_y + J^2_z
 
 
 
@@ -257,7 +287,9 @@ The squares are computed as
 
 
 
-We can print out the values as follows
+Remember that the eigenvalues of :math:`\mathbf{S}^2` are in the form
+:math:`S(S+1)` etc. and that they can be obtained by calculating the
+projection of the operators onto our eigenvectors.
 
 
 .. code-block:: default
@@ -265,10 +297,26 @@ We can print out the values as follows
     L2_val = edrixs.cb_op(L2, v).diagonal().real
     S2_val = edrixs.cb_op(S2, v).diagonal().real
     J2_val = edrixs.cb_op(J2, v).diagonal().real
-    print("{:<3s}\t{:>8s}\t{:>8s}\t{:>8s}".format("#  ", "E  ", "S(S+1)", "L(L+1)"))
+
+
+
+
+
+
+
+We can determine the degeneracy of the eigenvalues numerically and print out
+the values as follows
+
+
+.. code-block:: default
+
+    e = np.round(e, decimals=6)
+    degeneracy = [sum(eval == e) for eval in e]
+    header = "{:<3s}\t{:>8s}\t{:>8s}\t{:>8s}\t{:>8s}"
+    print(header.format("#  ", "E  ", "S(S+1)", "L(L+1)", "Degen."))
     for i, eigenvalue in enumerate(e):
-        values_list = [i, eigenvalue, S2_val[i], L2_val[i]]
-        print("{:<3d}\t{:8.3f}\t{:8.3f}\t{:8.3f}".format(*values_list))
+        values_list = [i, eigenvalue, S2_val[i], L2_val[i], degeneracy[i]]
+        print("{:<3d}\t{:8.3f}\t{:8.3f}\t{:8.3f}\t{:>3d}".format(*values_list))
 
 
 
@@ -280,39 +328,83 @@ We can print out the values as follows
 
  .. code-block:: none
 
-    #            E            S(S+1)          L(L+1)
-    0          3.800           2.000           2.000
-    1          3.800           2.000           2.000
-    2          3.800           2.000           2.000
-    3          3.800           2.000           2.000
-    4          3.800           2.000           2.000
-    5          3.800           2.000           2.000
-    6          3.800           2.000           2.000
-    7          3.800           2.000           2.000
-    8          3.800           2.000           2.000
-    9          4.040           0.000           6.000
-    10         4.040           0.000           6.000
-    11         4.040           0.000           6.000
-    12         4.040           0.000           6.000
-    13         4.040           0.000           6.000
-    14         4.400           0.000          -0.000
+    #            E            S(S+1)          L(L+1)          Degen.
+    0          3.800           2.000           2.000          9
+    1          3.800           2.000           2.000          9
+    2          3.800           2.000           2.000          9
+    3          3.800           2.000           2.000          9
+    4          3.800           2.000           2.000          9
+    5          3.800           2.000           2.000          9
+    6          3.800           2.000           2.000          9
+    7          3.800           2.000           2.000          9
+    8          3.800           2.000           2.000          9
+    9          4.040           0.000           6.000          5
+    10         4.040           0.000           6.000          5
+    11         4.040           0.000           6.000          5
+    12         4.040           0.000           6.000          5
+    13         4.040           0.000           6.000          5
+    14         4.400           0.000          -0.000          1
 
 
 
 
-We see `S=0` and `S=1` states and similary `L=0` and `L=1`. The high-spin
-states have lower energy in accordance with Hund's rules.
+We see :math:`S=0` and :math:`S=1` states coming from the
+two combinations of the spin 1/2 particles. :math:`L` can take values of
+0, 1, 2. Remember that spin states have degeneracy of :math:`2S+1` and the
+same is true for orbital states. We must multiply these :math:`S` and
+:math:`L` degeneracies to get the total degeneracy.
+
+Energy level diagram
+------------------------------------------------------------------------------
+Let us show our findings graphically
+
+
+.. code-block:: default
+
+    fig, ax = plt.subplots()
+    for i, eigenvalue in enumerate(np.unique(e)):
+        art = ax.plot([0, 1], [eigenvalue, eigenvalue], '-',  color='C{}'.format(i))
+        ind = np.where(eigenvalue == e)[0][0]
+        L = np.sqrt(1 + 4*L2_val[ind])/2
+        S = np.sqrt(1 + 4*S2_val[ind])/2
+        message = "L={:.0f}, S={:.0f} ({:.0f})"
+        ax.text(1, eigenvalue, message.format(L, S, degeneracy[ind]),
+                horizontalalignment='right',
+                verticalalignment='bottom',
+                color='C{}'.format(i))
+
+    _ = ax.set_ylabel('Energy')
+    _ = [ax.spines[loc].set_visible(False) for loc in ['right', 'top', 'bottom']]
+    _ = ax.yaxis.set_ticks_position('left')
+    _ = ax.set_xticks([])
+
+
+
+
+.. image:: /auto_examples/images/sphx_glr_example_0_ed_calculator_001.png
+    :alt: example 0 ed calculator
+    :class: sphx-glr-single-img
+
+
+
+
+
+We see Hund's rules in action! Rule 1 says that the highest spin :math:`S=1`
+state has the lowest energy. Of the two :math:`S=1` states, the state with
+larger :math:`L=1` is lower energy following rule 2.
 
 Spin orbit coupling
 ------------------------------------------------------------------------------
 For fun, we can see how this changes when we add spin orbit coupling (SOC).
 This is a two-fermion operator that we create, transform into the Fock basis
-and add to the prior Hamiltonain.
+and add to the prior Hamiltonian. To make things easy, let us make the SOC
+small so that the LS coupling approximation is valid and we can
+still track the states.
 
 
 .. code-block:: default
 
-    soc = edrixs.atom_hsoc('p', 0.2)
+    soc = edrixs.atom_hsoc('p', 0.1)
     n_fermion = 2
     H2 = H + edrixs.build_opers(n_fermion, soc, basis)
 
@@ -329,14 +421,18 @@ Then, we redo the diagonalization and print the results.
 .. code-block:: default
 
     e2, v2 = scipy.linalg.eigh(H2)
-    print("With SOC")
-    print("{:<3s}\t{:>8s}\t{:>8s}\t{:>8s}\t{:>8s}".format("#", "E", "S(S+1)", "L(L+1)", "J(J+1)"))
+    e2 = np.round(e2, decimals=6)
+    degeneracy2 = [sum(eval == e2) for eval in e2]
+    print()
+    message = "With SOC\n {:<3s}\t{:>8s}\t{:>8s}\t{:>8s}\t{:>8s}\t{:>8s}"
+    print(message.format("#", "E", "S(S+1)", "L(L+1)", "J(J+1)", "degen."))
     J2_val_soc = edrixs.cb_op(J2, v2).diagonal().real
     L2_val_soc = edrixs.cb_op(L2, v2).diagonal().real
     S2_val_soc = edrixs.cb_op(S2, v2).diagonal().real
     for i, eigenvalue in enumerate(e2):
-        values_list = [i, eigenvalue, S2_val_soc[i], L2_val_soc[i], J2_val_soc[i]]
-        print("{:<3d}\t{:8.3f}\t{:8.3f}\t{:8.3f}\t{:8.3f}".format(*values_list))
+        values_list = [i, eigenvalue, S2_val_soc[i], L2_val_soc[i], J2_val_soc[i],
+                       degeneracy2[i]]
+        print("{:<3d}\t{:8.3f}\t{:8.3f}\t{:8.3f}\t{:8.3f}\t{:8.3f}".format(*values_list))
 
 
 
@@ -348,49 +444,70 @@ Then, we redo the diagonalization and print the results.
 
  .. code-block:: none
 
+
     With SOC
-    #              E          S(S+1)          L(L+1)          J(J+1)
-    0          3.510           1.816           1.816          -0.000
-    1          3.700           2.000           2.000           2.000
-    2          3.700           2.000           2.000           2.000
-    3          3.700           2.000           2.000           2.000
-    4          3.812           1.444           3.113           6.000
-    5          3.812           1.444           3.113           6.000
-    6          3.812           1.444           3.113           6.000
-    7          3.812           1.444           3.113           6.000
-    8          3.812           1.444           3.113           6.000
-    9          4.128           0.556           4.887           6.000
-    10         4.128           0.556           4.887           6.000
-    11         4.128           0.556           4.887           6.000
-    12         4.128           0.556           4.887           6.000
-    13         4.128           0.556           4.887           6.000
-    14         4.490           0.184           0.184          -0.000
+     #             E          S(S+1)          L(L+1)          J(J+1)          degen.
+    0          3.673           1.927           1.927          -0.000           1.000
+    1          3.750           2.000           2.000           2.000           3.000
+    2          3.750           2.000           2.000           2.000           3.000
+    3          3.750           2.000           2.000           2.000           3.000
+    4          3.827           1.802           2.396           6.000           5.000
+    5          3.827           1.802           2.396           6.000           5.000
+    6          3.827           1.802           2.396           6.000           5.000
+    7          3.827           1.802           2.396           6.000           5.000
+    8          3.827           1.802           2.396           6.000           5.000
+    9          4.063           0.198           5.604           6.000           5.000
+    10         4.063           0.198           5.604           6.000           5.000
+    11         4.063           0.198           5.604           6.000           5.000
+    12         4.063           0.198           5.604           6.000           5.000
+    13         4.063           0.198           5.604           6.000           5.000
+    14         4.427           0.073           0.073          -0.000           1.000
 
 
 
 
-Quantum number `J` now has values from 0, 1, 2 and since the shell is less
-than half full, Hund's rules dictate that the minimum `J` has the lowest
-energy.
+and we make an equivalent energy level diagram.
 
 
 .. code-block:: default
 
-  
-  
-    #  show a nice image for the index
-    # sphinx_gallery_thumbnail_path = '_static/calculator.jpg'
+
+    fig, ax = plt.subplots()
+    for i, eigenvalue in enumerate(np.unique(e2)):
+        art = ax.plot([0, 1], [eigenvalue, eigenvalue], '-',  color='C{}'.format(i))
+        ind = np.where(eigenvalue == e2)[0][0]
+        J = np.sqrt(1+4*J2_val_soc[ind])/2
+        message = "J={:.0f} ({:.0f})"
+        ax.text(1, eigenvalue, message.format(J, degeneracy2[ind]),
+                horizontalalignment='right',
+                verticalalignment='bottom',
+                color='C{}'.format(i))
+
+    _ = ax.set_ylabel('Energy')
+    _ = [ax.spines[loc].set_visible(False) for loc in ['right', 'top', 'bottom']]
+    _ = ax.yaxis.set_ticks_position('left')
+    _ = ax.set_xticks([])
+
+
+
+
+.. image:: /auto_examples/images/sphx_glr_example_0_ed_calculator_002.png
+    :alt: example 0 ed calculator
+    :class: sphx-glr-single-img
 
 
 
 
 
-
+It is clear that we have split the :math:`S=1` state, which branches into
+three states from :math:`J=S-L` to :math:`J=S+L`. Since the shell is less than
+half full, Hund's third rule dictates that the smaller :math:`J` states
+have the lower energies.
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.038 seconds)
+   **Total running time of the script:** ( 0 minutes  0.188 seconds)
 
 
 .. _sphx_glr_download_auto_examples_example_0_ed_calculator.py:
