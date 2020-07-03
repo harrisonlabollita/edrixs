@@ -185,6 +185,18 @@ output by simply redirecting the output to a file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">myscript</span><span class="o">.</span><span class="n">py</span> <span class="o">&gt;</span> <span class="n">myoutput</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
+<p>Python also includes an excellent plotting package
+<a class="reference external" href="http://www.matplotlib.org">matplotlib</a>, which one can use to make publication
+quality plots.</p>
+<p>While our aim is that the huge majority of tasks can be done without modifying
+the underlying code all the python layers of code are easy to modify if you
+would like to. If you want to modify, say, solvers.py. we would suggest copying
+solvers.py to your working directory under a different name e.g.
+<code class="code docutils literal notranslate"><span class="pre">my_solvers.py</span></code>. Executing <code class="code docutils literal notranslate"><span class="pre">%run</span> <span class="pre">my_solvers.py</span></code>
+from within your script will then load the functions from the file into your
+namespace. Just be sure to tell the script to load functions from edrixs
+(and not via a relative file import) i.e. <code class="code docutils literal notranslate"><span class="pre">from</span> <span class="pre">.soc</span> <span class="pre">import</span> <span class="pre">atom_hsoc</span></code>
+should be <code class="code docutils literal notranslate"><span class="pre">from</span> <span class="pre">edrixs.soc</span> <span class="pre">import</span> <span class="pre">atom_hsoc</span></code>.</p>
 <p>For more exploratory usage,  <a class="reference external" href="http://ipython.org">IPython</a> or
 <a class="reference external" href="http://www.jupyter.org">Jupyter</a>
 can be very useful. (See <a class="reference internal" href="usedocker.html#edrixsanddocker"><span class="std std-ref">edrixs and docker</span></a> for invoking jupyter over docker.)
