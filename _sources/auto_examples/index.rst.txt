@@ -52,6 +52,27 @@ Below are examples illustrating how to use EDRIXS:
    :hidden:
 
    /auto_examples/example_1_crystal_field
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The model considers the Ni 3d orbitals interacting with a surrounding  set of O 2p orbitals. Ni...">
+
+.. only:: html
+
+ .. figure:: /auto_examples/images/thumb/sphx_glr_example_2_AIM_XAS_thumb.png
+     :alt: Anderson impurity model for NiO XAS
+
+     :ref:`sphx_glr_auto_examples_example_2_AIM_XAS.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/example_2_AIM_XAS
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>
