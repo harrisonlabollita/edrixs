@@ -1,10 +1,12 @@
 ./_downloads/19fe2d499e7b617b38dd14769a60879d/auto_examples_python.zip
 ./_downloads/1be90bfc5113911c3b1b624caca9b8e8/example_2_AIM_XAS.ipynb
 ./_downloads/3c5626e47a8dbeace785112f693da4eb/example_1_crystal_field.ipynb
+./_downloads/3e54d9536443eeef7942e8ee17f09bbf/example_3_GS_analysis.ipynb
 ./_downloads/6cd93e346e243a1950ba57feae08db0a/example_0_ed_calculator.ipynb
 ./_downloads/70de13b284f960b925a33e4b2ba9a8c5/example_1_crystal_field.py
 ./_downloads/7fdbd8c6d7eb529642f9d6214b5c2159/auto_examples_jupyter.zip
 ./_downloads/83d0d7a30a8f308b3ff9caa9ca54d749/example_2_AIM_XAS.py
+./_downloads/915c9bf264fe096a42dbfbbe8729f318/example_3_GS_analysis.py
 ./_downloads/a366641f5cade924791a73ee6d78cee6/example_0_ed_calculator.py
 ./_images/helloworld.png
 ./_images/sphx_glr_example_0_ed_calculator_001.png
@@ -13,6 +15,8 @@
 ./_images/sphx_glr_example_1_crystal_field_thumb.png
 ./_images/sphx_glr_example_2_AIM_XAS_001.png
 ./_images/sphx_glr_example_2_AIM_XAS_thumb.png
+./_images/sphx_glr_example_3_GS_analysis_001.png
+./_images/sphx_glr_example_3_GS_analysis_thumb.png
 ./_modules/edrixs/angular_momentum.html
 ./_modules/edrixs/basis_transform.html
 ./_modules/edrixs/coulomb_utensor.html
@@ -31,6 +35,7 @@
 ./_sources/auto_examples/example_0_ed_calculator.rst.txt
 ./_sources/auto_examples/example_1_crystal_field.rst.txt
 ./_sources/auto_examples/example_2_AIM_XAS.rst.txt
+./_sources/auto_examples/example_3_GS_analysis.rst.txt
 ./_sources/auto_examples/index.rst.txt
 ./_sources/auto_examples/sg_execution_times.rst.txt
 ./_sources/index.rst.txt
@@ -157,6 +162,7 @@
 ./auto_examples/example_0_ed_calculator.html
 ./auto_examples/example_1_crystal_field.html
 ./auto_examples/example_2_AIM_XAS.html
+./auto_examples/example_3_GS_analysis.html
 ./auto_examples/index.html
 ./auto_examples/sg_execution_times.html
 ./genindex.html
