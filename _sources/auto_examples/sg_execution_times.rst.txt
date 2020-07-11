@@ -5,14 +5,14 @@
 
 Computation times
 =================
-**00:02.745** total execution time for **auto_examples** files:
+**00:02.757** total execution time for **auto_examples** files:
 
 +-------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_example_3_GS_analysis.py` (``example_3_GS_analysis.py``)     | 00:01.428 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_example_3_GS_analysis.py` (``example_3_GS_analysis.py``)     | 00:01.421 | 0.0 MB |
 +-------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_example_2_AIM_XAS.py` (``example_2_AIM_XAS.py``)             | 00:00.800 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_example_2_AIM_XAS.py` (``example_2_AIM_XAS.py``)             | 00:00.814 | 0.0 MB |
 +-------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_example_1_crystal_field.py` (``example_1_crystal_field.py``) | 00:00.323 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_example_1_crystal_field.py` (``example_1_crystal_field.py``) | 00:00.324 | 0.0 MB |
 +-------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_example_0_ed_calculator.py` (``example_0_ed_calculator.py``) | 00:00.194 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_example_0_ed_calculator.py` (``example_0_ed_calculator.py``) | 00:00.198 | 0.0 MB |
 +-------------------------------------------------------------------------------------------+-----------+--------+
