@@ -112,15 +112,15 @@ us look at the six columns corresponding to the lower energy eigenvalues.
  .. code-block:: none
 
     [[ 0.    0.    0.    0.    0.71  0.  ]
-     [ 0.    0.    0.    0.    0.   -0.71]
+     [ 0.    0.    0.    0.    0.    0.71]
+     [ 0.    0.   -1.    0.    0.    0.  ]
+     [ 0.    0.    0.   -1.    0.    0.  ]
+     [ 0.    0.    0.    0.    0.    0.  ]
+     [ 0.    0.    0.    0.    0.    0.  ]
      [ 1.    0.    0.    0.    0.    0.  ]
      [ 0.    1.    0.    0.    0.    0.  ]
-     [ 0.    0.    0.    0.    0.    0.  ]
-     [ 0.    0.    0.    0.    0.    0.  ]
-     [ 0.    0.    1.    0.    0.    0.  ]
-     [ 0.    0.    0.    1.    0.    0.  ]
      [ 0.    0.    0.    0.   -0.71  0.  ]
-     [ 0.    0.    0.    0.    0.    0.71]]
+     [ 0.    0.    0.    0.    0.   -0.71]]
 
 
 
@@ -145,7 +145,7 @@ These are the set of so-called :math:`t_{2g}` orbitals, composed of
  .. code-block:: none
 
     [[-0.71  0.    0.    0.  ]
-     [ 0.    0.71  0.    0.  ]
+     [ 0.   -0.71  0.    0.  ]
      [ 0.    0.    0.    0.  ]
      [ 0.    0.    0.    0.  ]
      [ 0.    0.    0.    1.  ]
@@ -153,7 +153,7 @@ These are the set of so-called :math:`t_{2g}` orbitals, composed of
      [ 0.    0.    0.    0.  ]
      [ 0.    0.    0.    0.  ]
      [-0.71  0.    0.    0.  ]
-     [ 0.    0.71  0.    0.  ]]
+     [ 0.   -0.71  0.    0.  ]]
 
 
 
@@ -531,7 +531,7 @@ gone from low-spin to high spin.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.316 seconds)
+   **Total running time of the script:** ( 0 minutes  0.401 seconds)
 
 
 .. _sphx_glr_download_auto_examples_example_1_crystal_field.py:
