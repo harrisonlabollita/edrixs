@@ -230,7 +230,7 @@ Computing expectation values
 To interpret the results, it is informative to compute the expectations values
 related to the spin :math:`\mathbf{S}`, orbital :math:`\mathbf{L}`,
 and total :math:`\mathbf{J}`, angular momentum. We first load the relevant
-matrices for these quantities for a `p` atomic shell.  We need to specifiy
+matrices for these quantities for a `p` atomic shell.  We need to specify
 that we would like to include spin when loading the orbital operator.
 
 
@@ -511,7 +511,7 @@ states have the lower energies.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.203 seconds)
+   **Total running time of the script:** ( 0 minutes  0.206 seconds)
 
 
 .. _sphx_glr_download_auto_examples_example_0_ed_calculator.py:

@@ -323,7 +323,7 @@ to eigenvector <code class="code docutils literal notranslate"><span class="pre"
 <p>To interpret the results, it is informative to compute the expectations values
 related to the spin <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>, orbital <span class="math notranslate nohighlight">\(\mathbf{L}\)</span>,
 and total <span class="math notranslate nohighlight">\(\mathbf{J}\)</span>, angular momentum. We first load the relevant
-matrices for these quantities for a <cite>p</cite> atomic shell.  We need to specifiy
+matrices for these quantities for a <cite>p</cite> atomic shell.  We need to specify
 that we would like to include spin when loading the orbital operator.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">orb_mom</span></a> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">get_orb_momentum</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">l</span></a><span class="p">,</span> <span class="n">ispin</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">spin_mom</span></a> <span class="o">=</span> <span class="n">edrixs</span><span class="o">.</span><span class="n">get_spin_momentum</span><span class="p">(</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">l</span></a><span class="p">)</span>
@@ -495,7 +495,7 @@ still track the states.</p>
 three states from <span class="math notranslate nohighlight">\(J=|L-S|, |L-S|+1, ..., |L+S|\)</span>. Since the shell is
 less than half full, Hund’s third rule dictates that the smaller <span class="math notranslate nohighlight">\(J\)</span>
 states have the lower energies.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.203 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.206 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-example-0-ed-calculator-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/a366641f5cade924791a73ee6d78cee6/example_0_ed_calculator.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">example_0_ed_calculator.py</span></code></a></p>

@@ -168,7 +168,7 @@ applied to the off-diagonal terms of :code:`emat`.
 
 
 We now need to transform into the complex harmonic basis. We assign
-the two diagaonal blocks of a :math:`20\times20` matrix to the
+the two diagonal blocks of a :math:`20\times20` matrix to the
 conjugate transpose of the transition matrix.
 
 
@@ -320,7 +320,7 @@ structure from the other interactions.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.721 seconds)
+   **Total running time of the script:** ( 0 minutes  1.667 seconds)
 
 
 .. _sphx_glr_download_auto_examples_example_3_GS_analysis.py:

@@ -374,7 +374,7 @@ Update MacPorts by:</p>
 <p><strong>Notes:</strong></p>
 <ul class="simple">
 <li><p>DO NOT use pip to install numpy because it will use <code class="docutils literal notranslate"><span class="pre">clang</span></code> as default compiler, which has a strange bug when using <code class="docutils literal notranslate"><span class="pre">f2py</span></code> with <code class="docutils literal notranslate"><span class="pre">mpif90</span></code> compiler. If you cannot solve this issue by <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">port</span> <span class="pre">install</span> <span class="pre">py37-numpy</span> <span class="pre">+gcc8</span></code>, you can compile numpy from its source with <code class="docutils literal notranslate"><span class="pre">gcc</span></code> compiler. Always use gcc to compile numpy if you want to build it from source.</p></li>
-<li><p>You can also try <code class="docutils literal notranslate"><span class="pre">gcc9</span></code> if it is already avaiable, but be sure to change all <code class="docutils literal notranslate"><span class="pre">gcc8</span></code> to <code class="docutils literal notranslate"><span class="pre">gcc9</span></code> in the above commands.</p></li>
+<li><p>You can also try <code class="docutils literal notranslate"><span class="pre">gcc9</span></code> if it is already available, but be sure to change all <code class="docutils literal notranslate"><span class="pre">gcc8</span></code> to <code class="docutils literal notranslate"><span class="pre">gcc9</span></code> in the above commands.</p></li>
 </ul>
 <p>We will assume <code class="docutils literal notranslate"><span class="pre">python</span></code> pointing to <code class="docutils literal notranslate"><span class="pre">python3.7</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span></code> pointing to <code class="docutils literal notranslate"><span class="pre">pip3.7</span></code> from now on. If this is not the case, you can make links explicitly.
 Check we are using the expected python and pip:</p>
@@ -411,7 +411,7 @@ export PATH=/opt/local/Library/Frameworks/Python.framework/Versions/3.7/bin:$PAT
 <span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
-<p>You can add <code class="docutils literal notranslate"><span class="pre">edrixs/bin</span></code> to the enviroment variable <code class="docutils literal notranslate"><span class="pre">PATH</span></code> in ~/.bash_profile.</p>
+<p>You can add <code class="docutils literal notranslate"><span class="pre">edrixs/bin</span></code> to the environment variable <code class="docutils literal notranslate"><span class="pre">PATH</span></code> in ~/.bash_profile.</p>
 <p>Go to <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory to run some examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">examples</span><span class="o">/</span><span class="n">more</span><span class="o">/</span><span class="n">ED</span><span class="o">/</span><span class="mi">14</span><span class="n">orb</span>
 <span class="o">./</span><span class="n">get_inputs</span><span class="o">.</span><span class="n">py</span>
@@ -505,7 +505,7 @@ following text in it:</p>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
-<p>You can add <code class="docutils literal notranslate"><span class="pre">edrixs/bin</span></code> to the enviroment variable <code class="docutils literal notranslate"><span class="pre">PATH</span></code> in <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code>.</p>
+<p>You can add <code class="docutils literal notranslate"><span class="pre">edrixs/bin</span></code> to the environment variable <code class="docutils literal notranslate"><span class="pre">PATH</span></code> in <code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code>.</p>
 <p>Go to <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory to run some examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">examples</span><span class="o">/</span><span class="n">more</span><span class="o">/</span><span class="n">ED</span><span class="o">/</span><span class="mi">14</span><span class="n">orb</span>
 <span class="o">./</span><span class="n">get_inputs</span><span class="o">.</span><span class="n">py</span>

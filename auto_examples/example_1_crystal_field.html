@@ -203,7 +203,7 @@ spin for each <span class="math notranslate nohighlight">\(Y^m_l\)</span>. This 
 harmonic basis, but it would be diagonal in the real harmonic basis
 <span class="math notranslate nohighlight">\(d_{3z^2-r^2}, d_{xz}, d_{yz}, d_{x^2-y^2}, d_{xy}\)</span>.
 Let us diagonalize this matrix as a check and print out the energies
-and their degenergies.</p>
+and their degeneracies.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">e</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">v</span></a> <span class="o">=</span> <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eigh.html#scipy.linalg.eigh" title="scipy.linalg.eigh" class="sphx-glr-backref-module-scipy-linalg sphx-glr-backref-type-py-function"><span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cfmat</span></a><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">e</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">e</span></a><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">unique_e</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.unique.html#numpy.unique" title="numpy.unique" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">unique</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">e</span></a><span class="p">)</span>
@@ -212,14 +212,14 @@ and their degenergies.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;E  </span><span class="se">\t</span><span class="s2">Degeneracy&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">evalue</span><span class="p">,</span> <span class="n">degenvalue</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">unique_e</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">degeneracies</span></a><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.1f}</span><span class="se">\t</span><span class="si">{:.0f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">evalue</span><span class="p">,</span> <span class="n">degenvalue</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> distict energies&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">unique_e</span></a><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> distinct energies&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">unique_e</span></a><span class="p">)))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>E       Degeneracy
 -4.0    6
 6.0     4
-2 distict energies
+2 distinct energies
 </pre></div>
 </div>
 <p>This makes sense! We see two different energies split by <span class="math notranslate nohighlight">\(10D_q=10\)</span>. Let
@@ -261,7 +261,7 @@ us look at the six columns corresponding to the lower energy eigenvalues.</p>
 </div>
 <p>These are the set of so-called <span class="math notranslate nohighlight">\(e_{g}\)</span> orbitals, composed of
 <span class="math notranslate nohighlight">\(Y^2_2, Y^{-2}_2, Y^{0}_2\)</span>. We can use edrixs to prove that
-<code class="code docutils literal notranslate"><span class="pre">cfmat</span></code> woud be diagonal in the real
+<code class="code docutils literal notranslate"><span class="pre">cfmat</span></code> would be diagonal in the real
 harmonic basis. An operator <span class="math notranslate nohighlight">\(\hat{O}\)</span> can be transformed into an
 operator in another basis <span class="math notranslate nohighlight">\(\hat{O}^{\prime}\)</span> using a unitary
 transformation matrix <span class="math notranslate nohighlight">\(T\)</span> as</p>
@@ -339,7 +339,7 @@ if the code is confusing.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;E  </span><span class="se">\t</span><span class="s2">Degeneracy&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">evalue</span><span class="p">,</span> <span class="n">degenvalue</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">unique_e</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">degeneracies</span></a><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.1f}</span><span class="se">\t</span><span class="si">{:.0f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">evalue</span><span class="p">,</span> <span class="n">degenvalue</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> distict energies&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">unique_e</span></a><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> distinct energies&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">unique_e</span></a><span class="p">)))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
@@ -354,7 +354,7 @@ if the code is confusing.</p>
 5.0     1
 5.9     8
 6.8     6
-10 distict energies
+10 distinct energies
 </pre></div>
 </div>
 <p>We see 10 distinct energies, which is the number of ways one can arrange
@@ -367,7 +367,7 @@ To create the operator, first write the matrix in the real harmonics basis
 <span class="math notranslate nohighlight">\(|3z^2-r^2,\uparrow&gt;\)</span>, <span class="math notranslate nohighlight">\(|3z^2-r^2,\downarrow&gt;\)</span>,
 <span class="math notranslate nohighlight">\(|zx,\uparrow&gt;\)</span>, <span class="math notranslate nohighlight">\(|zx,\downarrow&gt;\)</span>, etc.
 In this basis, they take a simple form: only the diagonal terms have element
-1. We therefore make a 3D empty array and assign the diagaonal as 1. Check
+1. We therefore make a 3D empty array and assign the diagonal as 1. Check
 out the
 <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html">numpy indexing notes</a>
 if needed.</p>
@@ -516,7 +516,7 @@ same orbital.</p>
 <p>Now the lowest energy state involves splitting the holes between the two
 highest energy <span class="math notranslate nohighlight">\(x^2-y^2\)</span> and <span class="math notranslate nohighlight">\(3z^2-r^2\)</span> orbitals. i.e. we have
 gone from low-spin to high spin.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.398 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.409 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-example-1-crystal-field-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/70de13b284f960b925a33e4b2ba9a8c5/example_1_crystal_field.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">example_1_crystal_field.py</span></code></a></p>

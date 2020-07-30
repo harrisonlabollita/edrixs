@@ -486,9 +486,9 @@
 <span class="sd">       .. math::</span>
 <span class="sd">           \\begin{aligned}</span>
 <span class="sd">           E_d &amp;=</span>
-<span class="sd">           \\frac{10 \\Delta - n (19 +  n) U_{dd}{2}}{10 + n}  \\\\</span>
+<span class="sd">           \\frac{10 \\Delta - n (19 +  n) U_{dd}/2}{10 + n}  \\\\</span>
 <span class="sd">           E_L &amp;=</span>
-<span class="sd">           \\frac{n ((1+n) U_{dd}/2-\\Delta}{10 + n}</span>
+<span class="sd">           \\frac{n (1+n) U_{dd}/2-\\Delta}{10 + n}</span>
 <span class="sd">           \\end{aligned}.</span>
 
 <span class="sd">    References</span>
@@ -975,7 +975,7 @@
                     <span class="s1">&#39;5s&#39;</span><span class="p">,</span> <span class="s1">&#39;5p&#39;</span><span class="p">,</span> <span class="s1">&#39;5d&#39;</span><span class="p">,</span> <span class="s1">&#39;5f&#39;</span><span class="p">,</span> <span class="s1">&#39;6s&#39;</span><span class="p">,</span> <span class="s1">&#39;6p&#39;</span><span class="p">,</span> <span class="s1">&#39;6d&#39;</span><span class="p">]</span>
 
     <span class="k">if</span> <span class="n">atom</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">avail_atoms</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Atom data is Not avaiable for this atom: &quot;</span><span class="p">,</span> <span class="n">atom</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Atom data is Not available for this atom: &quot;</span><span class="p">,</span> <span class="n">atom</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v_name</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
         <span class="n">v_name</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_name</span><span class="p">,)</span>
@@ -991,7 +991,7 @@
 
     <span class="k">for</span> <span class="n">ishell</span> <span class="ow">in</span> <span class="n">v_name</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">ishell</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">avail_shells</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Not avaiable for this shell: &quot;</span><span class="p">,</span> <span class="n">ishell</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Not available for this shell: &quot;</span><span class="p">,</span> <span class="n">ishell</span><span class="p">)</span>
 
     <span class="n">fname</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s1">&#39;edrixs&#39;</span><span class="p">,</span> <span class="s1">&#39;atom_data/&#39;</span><span class="o">+</span><span class="n">atom</span><span class="o">+</span><span class="s1">&#39;.json&#39;</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -1012,7 +1012,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="n">case</span> <span class="o">=</span> <span class="n">v_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v_noccu</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">v_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v_noccu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">case</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">atom_dict</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;This configuration is not avaiable in atom_data&quot;</span><span class="p">,</span> <span class="n">case</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;This configuration is not available in atom_data&quot;</span><span class="p">,</span> <span class="n">case</span><span class="p">)</span>
 
     <span class="n">nslat</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">slater_name</span><span class="p">)</span>
     <span class="n">slater_i</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">nslat</span>
@@ -1047,7 +1047,7 @@
                         <span class="n">v_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">v_noccu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span>
                         <span class="n">edge_name</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">c_norb</span><span class="p">[</span><span class="n">edge_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">case</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">atom_dict</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;This configuration is currently not avaiable in atom_data&quot;</span><span class="p">,</span> <span class="n">case</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;This configuration is currently not available in atom_data&quot;</span><span class="p">,</span> <span class="n">case</span><span class="p">)</span>
 
         <span class="n">nslat</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">slater_name</span><span class="p">)</span>
         <span class="n">slater_n</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">nslat</span>
