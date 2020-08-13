@@ -59,6 +59,7 @@
 ./_sources/user/basics.rixs.rst.txt
 ./_sources/user/basics.rst.txt
 ./_sources/user/basics.xas.rst.txt
+./_sources/user/examples.rst.txt
 ./_sources/user/index.rst.txt
 ./_sources/user/installation.rst.txt
 ./_sources/user/pythontips.rst.txt
@@ -195,6 +196,7 @@
 ./user/basics.html
 ./user/basics.rixs.html
 ./user/basics.xas.html
+./user/examples.html
 ./user/index.html
 ./user/installation.html
 ./user/pythontips.html
