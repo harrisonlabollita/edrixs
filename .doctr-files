@@ -1,10 +1,10 @@
-./_downloads/19fe2d499e7b617b38dd14769a60879d/auto_examples_python.zip
+./_downloads/07fcc19ba03226cd3d83d4e40ec44385/auto_examples_python.zip
 ./_downloads/1be90bfc5113911c3b1b624caca9b8e8/example_2_AIM_XAS.ipynb
 ./_downloads/3c5626e47a8dbeace785112f693da4eb/example_1_crystal_field.ipynb
 ./_downloads/3e54d9536443eeef7942e8ee17f09bbf/example_3_GS_analysis.ipynb
 ./_downloads/6cd93e346e243a1950ba57feae08db0a/example_0_ed_calculator.ipynb
+./_downloads/6f1e7a639e0699d6164445b55e6c116d/auto_examples_jupyter.zip
 ./_downloads/70de13b284f960b925a33e4b2ba9a8c5/example_1_crystal_field.py
-./_downloads/7fdbd8c6d7eb529642f9d6214b5c2159/auto_examples_jupyter.zip
 ./_downloads/83d0d7a30a8f308b3ff9caa9ca54d749/example_2_AIM_XAS.py
 ./_downloads/915c9bf264fe096a42dbfbbe8729f318/example_3_GS_analysis.py
 ./_downloads/a366641f5cade924791a73ee6d78cee6/example_0_ed_calculator.py
@@ -67,6 +67,7 @@
 ./_sources/user/usedocker.rst.txt
 ./_sources/user/whatisedrixs.rst.txt
 ./_static/basic.css
+./_static/binder_badge_logo.svg
 ./_static/broken_example.png
 ./_static/calculator.jpg
 ./_static/clipboard.min.js
