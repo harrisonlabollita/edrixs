@@ -45,7 +45,6 @@ of course, be cited.
     import edrixs
     import numpy as np
     import matplotlib.pyplot as plt
-    from mpi4py import MPI
 
 
 
@@ -469,6 +468,7 @@ you'd like to us. Running it as normal will work, it will just be slower.
 .. code-block:: default
 
     if __name__ == '__main__':
+        from mpi4py import MPI
         comm = MPI.COMM_WORLD
         rank = comm.Get_rank()
         size = comm.Get_size() 
@@ -608,6 +608,7 @@ Let's plot the data and save it just in case
         ax.set_xlabel('Energy (eV)')
         ax.set_ylabel('XAS intensity')
         ax.set_title('Anderson impurity model for NiO')
+        plt.show()
 
         np.savetxt('xas.dat', np.concatenate((np.array([ominc_xas]).T, xas), axis=1))
 
@@ -634,7 +635,7 @@ Let's plot the data and save it just in case
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.951 seconds)
+   **Total running time of the script:** ( 0 minutes  0.963 seconds)
 
 
 .. _sphx_glr_download_auto_examples_example_2_AIM_XAS.py:

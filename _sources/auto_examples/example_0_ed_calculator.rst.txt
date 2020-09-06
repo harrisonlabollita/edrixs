@@ -376,10 +376,13 @@ Let us show our findings graphically
                 verticalalignment='bottom',
                 color='C{}'.format(i))
 
-    _ = ax.set_ylabel('Energy')
-    _ = [ax.spines[loc].set_visible(False) for loc in ['right', 'top', 'bottom']]
-    _ = ax.yaxis.set_ticks_position('left')
-    _ = ax.set_xticks([])
+    ax.set_ylabel('Energy')
+    for loc in ['right', 'top', 'bottom']:
+        ax.spines[loc].set_visible(False)
+
+    ax.yaxis.set_ticks_position('left')
+    ax.set_xticks([])
+    plt.show()
 
 
 
@@ -486,10 +489,13 @@ and we make an equivalent energy level diagram.
                 verticalalignment='bottom',
                 color='C{}'.format(i))
 
-    _ = ax.set_ylabel('Energy')
-    _ = [ax.spines[loc].set_visible(False) for loc in ['right', 'top', 'bottom']]
-    _ = ax.yaxis.set_ticks_position('left')
-    _ = ax.set_xticks([])
+    ax.set_ylabel('Energy')
+    for loc in ['right', 'top', 'bottom']:
+        ax.spines[loc].set_visible(False)
+
+    ax.yaxis.set_ticks_position('left')
+    ax.set_xticks([])
+    plt.show()
 
 
 
@@ -510,7 +516,7 @@ states have the lower energies.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.200 seconds)
+   **Total running time of the script:** ( 0 minutes  0.203 seconds)
 
 
 .. _sphx_glr_download_auto_examples_example_0_ed_calculator.py:

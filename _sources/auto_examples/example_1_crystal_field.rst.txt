@@ -20,7 +20,6 @@ We need to import these modules.
 
     import edrixs
     import numpy as np
-    import matplotlib.pyplot as plt
     import scipy
 
     np.set_printoptions(precision=2, suppress=True, linewidth=90)
@@ -531,7 +530,7 @@ gone from low-spin to high spin.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.431 seconds)
+   **Total running time of the script:** ( 0 minutes  0.460 seconds)
 
 
 .. _sphx_glr_download_auto_examples_example_1_crystal_field.py:
