@@ -96,6 +96,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">edrixs and docker</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#run-edrixs-in-a-docker-container">Run edrixs in a docker container</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#connect-to-docker-python-session-with-jupyter">Connect to docker python session with Jupyter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sharing-your-code">Sharing your code</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="quickstart.html">Quickstart tutorial</a></li>
@@ -233,6 +234,15 @@ Follow these steps to use the docker image:</p>
 <p>Jupyterlab provides access to a unix terminal, which you can create via File &gt; New &gt; Terminal. We suggest changing the terminal shell type by issuing the command <code class="docutils literal notranslate"><span class="pre">bash</span></code> in the terminal.</p>
 </li>
 </ul>
+</div>
+<div class="section" id="sharing-your-code">
+<h2>Sharing your code<a class="headerlink" href="#sharing-your-code" title="Permalink to this headline">¶</a></h2>
+<p>Using Docker is a nice way to straightforwardly share your code with others. The standard way to specify which docker image is needed to run your code is to include a file named <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> with the following contents</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FROM</span> <span class="n">edrixs</span><span class="o">/</span><span class="n">edrixs_interactive</span>
+<span class="n">USER</span> <span class="n">rixs</span>
+</pre></div>
+</div>
+<p>You might like to checkout the <a class="reference external" href="https://repo2docker.readthedocs.io/en/latest/">jupyter-repo2docker</a> project, which helps automate the process of building and connecting to docker images. The <a class="reference external" href="https://mybinder.org/">mybinder</a> project might also be helpful as this will open a github respository of notebooks in an executable environment, making your code immediately reproducible by anyone, anywhere.</p>
 </div>
 </div>
 
