@@ -159,7 +159,7 @@
 <span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;get_ladd&#39;</span><span class="p">,</span> <span class="s1">&#39;get_lminus&#39;</span><span class="p">,</span> <span class="s1">&#39;get_lx&#39;</span><span class="p">,</span> <span class="s1">&#39;get_ly&#39;</span><span class="p">,</span> <span class="s1">&#39;get_lz&#39;</span><span class="p">,</span> <span class="s1">&#39;get_orb_momentum&#39;</span><span class="p">,</span>
            <span class="s1">&#39;get_pauli&#39;</span><span class="p">,</span> <span class="s1">&#39;get_sx&#39;</span><span class="p">,</span> <span class="s1">&#39;get_sy&#39;</span><span class="p">,</span> <span class="s1">&#39;get_sz&#39;</span><span class="p">,</span> <span class="s1">&#39;get_spin_momentum&#39;</span><span class="p">,</span> <span class="s1">&#39;euler_to_rmat&#39;</span><span class="p">,</span>
            <span class="s1">&#39;rmat_to_euler&#39;</span><span class="p">,</span> <span class="s1">&#39;where_is_angle&#39;</span><span class="p">,</span> <span class="s1">&#39;dmat_spinor&#39;</span><span class="p">,</span> <span class="s1">&#39;zx_to_rmat&#39;</span><span class="p">,</span> <span class="s1">&#39;get_wigner_dmat&#39;</span><span class="p">,</span>
-           <span class="s1">&#39;cf_cubic_d&#39;</span><span class="p">,</span> <span class="s1">&#39;cf_tetragonal_d&#39;</span><span class="p">,</span> <span class="s1">&#39;cf_trigonal_t2g&#39;</span><span class="p">]</span>
+           <span class="s1">&#39;cf_cubic_d&#39;</span><span class="p">,</span> <span class="s1">&#39;cf_tetragonal_d&#39;</span><span class="p">,</span> <span class="s1">&#39;cf_square_planar_d&#39;</span><span class="p">,</span> <span class="s1">&#39;cf_trigonal_t2g&#39;</span><span class="p">]</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">.basis_transform</span> <span class="kn">import</span> <span class="n">cb_op</span><span class="p">,</span> <span class="n">tmat_r2c</span>
@@ -846,6 +846,44 @@
     <span class="n">cf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tmp</span>
     <span class="n">cf</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tmp</span>
     <span class="n">cf</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">cb_op</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">tmat_r2c</span><span class="p">(</span><span class="s1">&#39;t2g&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">cf</span></div>
+
+
+<div class="viewcode-block" id="cf_square_planar_d"><a class="viewcode-back" href="../../reference/angular_momentum.html#edrixs.angular_momentum.cf_square_planar_d">[docs]</a><span class="k">def</span> <span class="nf">cf_square_planar_d</span><span class="p">(</span><span class="n">ten_dq</span><span class="p">,</span> <span class="n">ds</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given 10Dq, ds, return square planar crystal field matrix for d orbitals</span>
+<span class="sd">    in the complex harmonics basis. This is the limit of strong tetragonal</span>
+<span class="sd">    distortion with two axial ligands at infinity. Note that in this case the</span>
+<span class="sd">    three parameters, ten_dq, ds, and dt, are no longer independent:</span>
+<span class="sd">    dt = 2/35*ten_dq and the levels depend on only two parameters</span>
+<span class="sd">    ten_dq and ds.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ten_dq: float scalar</span>
+<span class="sd">        Parameter associated with eg-t2g splitting.</span>
+<span class="sd">    ds: float scalar</span>
+<span class="sd">        Paramter associated with splitting orbitals with</span>
+<span class="sd">        z-components.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cf: 2d complex array, shape=(10, 10)</span>
+<span class="sd">        The matrix form of crystal field Hamiltonian in complex harmonics basis.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex</span><span class="p">)</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span><span class="o">/</span><span class="mi">35</span><span class="o">*</span><span class="n">ten_dq</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ds</span>  <span class="c1"># d3z2-r2</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span><span class="o">/</span><span class="mi">35</span><span class="o">*</span><span class="n">ten_dq</span> <span class="o">-</span> <span class="n">ds</span>  <span class="c1"># dzx</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span><span class="o">/</span><span class="mi">35</span><span class="o">*</span><span class="n">ten_dq</span> <span class="o">-</span> <span class="n">ds</span>  <span class="c1"># dzy</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">19</span><span class="o">/</span><span class="mi">35</span><span class="o">*</span><span class="n">ten_dq</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ds</span>  <span class="c1"># dx2-y2</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">16</span><span class="o">/</span><span class="mi">35</span><span class="o">*</span><span class="n">ten_dq</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ds</span>  <span class="c1"># dxy</span>
+
+    <span class="n">cf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex</span><span class="p">)</span>
+    <span class="n">cf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
+    <span class="n">cf</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
+
+    <span class="n">cf</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">cb_op</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">tmat_r2c</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">cf</span></div>
 

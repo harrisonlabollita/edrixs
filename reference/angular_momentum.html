@@ -202,6 +202,34 @@ in the complex harmonics basis.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="edrixs.angular_momentum.cf_square_planar_d">
+<code class="sig-prename descclassname">edrixs.angular_momentum.</code><code class="sig-name descname">cf_square_planar_d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ten_dq</span></em>, <em class="sig-param"><span class="n">ds</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/angular_momentum.html#cf_square_planar_d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.angular_momentum.cf_square_planar_d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given 10Dq, ds, return square planar crystal field matrix for d orbitals
+in the complex harmonics basis. This is the limit of strong tetragonal
+distortion with two axial ligands at infinity. Note that in this case the
+three parameters, ten_dq, ds, and dt, are no longer independent:
+dt = 2/35*ten_dq and the levels depend on only two parameters
+ten_dq and ds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ten_dq: float scalar</strong></dt><dd><p>Parameter associated with eg-t2g splitting.</p>
+</dd>
+<dt><strong>ds: float scalar</strong></dt><dd><p>Paramter associated with splitting orbitals with
+z-components.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>cf: 2d complex array, shape=(10, 10)</dt><dd><p>The matrix form of crystal field Hamiltonian in complex harmonics basis.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="edrixs.angular_momentum.cf_tetragonal_d">
 <code class="sig-prename descclassname">edrixs.angular_momentum.</code><code class="sig-name descname">cf_tetragonal_d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ten_dq</span></em>, <em class="sig-param"><span class="n">d1</span></em>, <em class="sig-param"><span class="n">d3</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/edrixs/angular_momentum.html#cf_tetragonal_d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#edrixs.angular_momentum.cf_tetragonal_d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given 10Dq, d1, d3, return tetragonal crystal field matrix for d orbitals
