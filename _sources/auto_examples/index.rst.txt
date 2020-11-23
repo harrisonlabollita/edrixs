@@ -55,7 +55,7 @@ Below are some examples illustrating the concepts behind and usage of EDRIXS.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="The model considers the Ni 3d orbitals interacting with a surrounding  set of O 2p orbitals. Ni...">
+    <div class="sphx-glr-thumbcontainer" tooltip="When defining the bath states, it is useful to use the so-called symmetry adapted linear combin...">
 
 .. only:: html
 

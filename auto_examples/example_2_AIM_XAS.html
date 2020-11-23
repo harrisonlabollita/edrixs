@@ -179,30 +179,39 @@
 </div>
 <div class="sphx-glr-example-title section" id="anderson-impurity-model-for-nio-xas">
 <span id="sphx-glr-auto-examples-example-2-aim-xas-py"></span><h1>Anderson impurity model for NiO XAS<a class="headerlink" href="#anderson-impurity-model-for-nio-xas" title="Permalink to this headline">¶</a></h1>
-<p>Here we calculate the <span class="math notranslate nohighlight">\(L\)</span>-edge XAS spectrum of an Anderson impurity model.
-This is sometimes also called a charge-transfer multiplet model.
-Everyone’s favorite test case for this is NiO and we won’t risk being original!</p>
-<p>The model considers the Ni <span class="math notranslate nohighlight">\(3d\)</span> orbitals interacting with a surrounding
-set of O <span class="math notranslate nohighlight">\(2p\)</span> orbitals. NiO has a rocksalt structure in which all Ni
-atoms are surrounded by six O atoms in cubic symmetry. Based on this,
-one would assume that the NiO cluster used to simulate the crystal would
-need to contain <span class="math notranslate nohighlight">\(6\)</span> spin-orbitals per O
-<span class="math notranslate nohighlight">\(\times 6\)</span> O atoms <span class="math notranslate nohighlight">\(=36\)</span> oxygen
-spin-orbitals. As explained by, for example, Maurits Haverkort et al. in
-<a class="footnote-reference brackets" href="#id7" id="id1">1</a> only 10 of these orbitals
-interact with the Ni atom and solving the problem with <span class="math notranslate nohighlight">\(10+10 = 20\)</span>
-spin-orbitals is far faster. For more general calculations of this type you
-may see the Ni states being referred to as the impurity or metal and the
-O states being called the bath or ligand.</p>
-<p>We consider on-site crystal field, spin-orbit coupling, magnetic exchange, and
-Coulomb interactions for the impurity, which is hybridized with the bath by
-defining hopping parameters and an energy difference between the impurity
-and bath. In this way, our spectrum can include processes where
-electrons transition from the bath to the impurity.</p>
-<p>The crystal field and hopping parameters for such a calculation can be
-obtained from DFT. We will use values for NiO from
-<a class="footnote-reference brackets" href="#id7" id="id2">1</a>. If you use values from a paper the relevant references should,
-of course, be cited.</p>
+<p>Here we calculate the <span class="math notranslate nohighlight">\(L\)</span>-edge XAS spectrum of an Anderson impurity model,
+which is sometimes also called a charge-transfer multiplet model. This model
+considers a set of correlated orbitals, often called the impurity or metal
+states, that hybridize with a set of uncorrelated orbitals, often called the
+ligands or bath states. Everyone’s favorite test case for x-ray spectroscopic
+calculations of the Anderson impurity model is NiO and we won’t risk being
+original! This means that our correlated states will
+be the Ni <span class="math notranslate nohighlight">\(3d\)</span> orbitals and the uncorrelated states come from O
+<span class="math notranslate nohighlight">\(2p\)</span> orbitals. The fact that we include these interactions means that our
+spectrum can include processes where electrons transition from the bath to the
+impurity, as such the Anderson Impurity Model is often more accurate than atomic
+models, especially if the material has strong covalency.</p>
+<p>When defining the bath states, it is useful to use the so-called
+symmetry adapted linear combinations of orbitals as the basis. These states
+take into account the symmetry relationships between the different bath atom
+orbitals and the fact that there are bath orbital combinations that do not
+interact with the impurity by symmetry. By doing this the problem can be
+represented with fewer orbitals, which makes the calculation far more efficient.
+The standard EDRIXS solver that we will use assumes that the bath states are
+represented by an integer number of bath sites set by <code class="code docutils literal notranslate"><span class="pre">nbath</span></code>, each of
+which hosts the same number of spin-orbits as the impurity e.g. 10 for a
+<span class="math notranslate nohighlight">\(d\)</span>-electron material.</p>
+<p>NiO has a rocksalt structure in which all Ni atoms are surrounded by six O
+atoms. This NiO cluster used to simulate the
+crystal would then contain 10 Ni <span class="math notranslate nohighlight">\(3d\)</span> spin-orbitals and <span class="math notranslate nohighlight">\(6\)</span>
+spin-orbitals per O <span class="math notranslate nohighlight">\(\times 6\)</span> O atoms <span class="math notranslate nohighlight">\(=36\)</span> oxygen
+spin-orbitals. As explained by, for example, Maurits Haverkort
+et al. in <a class="footnote-reference brackets" href="#id7" id="id1">1</a> symmetry allows us to represent the bath with 10 symmetry
+adapted linear combinations of the different O <span class="math notranslate nohighlight">\(p_x, p_y, p_z\)</span> states.
+The crystal field and hopping parameters for
+such a calculation can be obtained by post-processing DFT calculations. We will
+use values for NiO from <a class="footnote-reference brackets" href="#id7" id="id2">1</a>. If you use values from a paper the relevant
+references should, of course, be cited.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">edrixs</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -212,14 +221,14 @@ of course, be cited.</p>
 <h2>Number of electrons<a class="headerlink" href="#number-of-electrons" title="Permalink to this headline">¶</a></h2>
 <p>When formulating problems of this type, one usually thinks of a nominal
 valence for the impurity atom in this case <code class="code docutils literal notranslate"><span class="pre">nd</span> <span class="pre">=</span> <span class="pre">8</span></code> and assume that the
-bath of <code class="code docutils literal notranslate"><span class="pre">norb_bath</span>&#160; <span class="pre">=</span> <span class="pre">10</span></code> O spin-orbitals is full. The solver that we will
+bath is full. The solver that we will
 use can simulate multiple bath sites. In our case we specify
 <code class="code docutils literal notranslate"><span class="pre">nbath</span>&#160; <span class="pre">=</span> <span class="pre">1</span></code> sites. Electrons will be able to transition from O to Ni
-during our calculation, but the total number of valance electrons <code class="code docutils literal notranslate"><span class="pre">v_noccu</span></code>
-will be conserved.</p>
+during our calculation, but the total number of valance electrons
+<code class="code docutils literal notranslate"><span class="pre">v_noccu</span></code> will be conserved.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nd</span></a> <span class="o">=</span> <span class="mi">8</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">norb_d</span></a> <span class="o">=</span> <span class="mi">10</span>
-<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">norb_bath</span></a>  <span class="o">=</span> <span class="mi">10</span> <span class="c1"># number of spin-orbitals for each bath site</span>
+<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">norb_bath</span></a> <span class="o">=</span> <span class="mi">10</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nbath</span></a> <span class="o">=</span> <span class="mi">1</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">v_noccu</span></a>  <span class="o">=</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nd</span></a> <span class="o">+</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nbath</span></a><span class="o">*</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">norb_d</span></a>
 <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">shell_name</span></a> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">)</span> <span class="c1"># valence and core shells for XAS calculation</span>
@@ -558,7 +567,7 @@ edrixs &gt;&gt;&gt; Isotropic, component:  2
 <a class="reference external" href="https://doi.org/10.1143/JPSJ.63.2788">J. Phys. Soc. Jpn. 63, 2788-2807(1994)</a></p>
 </dd>
 </dl>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.949 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.928 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-example-2-aim-xas-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/83d0d7a30a8f308b3ff9caa9ca54d749/example_2_AIM_XAS.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">example_2_AIM_XAS.py</span></code></a></p>
