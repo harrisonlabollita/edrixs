@@ -192,12 +192,14 @@ with two spins per orbital).
 Note that in more complicated problems with both valence and core
 electrons, the edrixs convention is to list the valence electrons first.
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-94
+.. GENERATED FROM PYTHON SOURCE LINES 83-96
 
 Transform interactions into Fock basis
 ------------------------------------------------------------------------------
-edrixs works by creating a Hamiltonian matrix :math:`\hat{H}` transformed into
-this Fock basis. These are four fermion interactions with this form
+edrixs works by initiailly creating a Hamiltonian matrix
+:math:`\hat{H}` in the single particle basis and then transforming into
+our chosen Fock basis. In the single particle basis, we have four fermion
+interactions with this form
 
     .. math::
        \hat{H} = <F_l|\sum_{ij}U_{ijkl}\hat{f}_{i}^{\dagger}
@@ -206,7 +208,7 @@ this Fock basis. These are four fermion interactions with this form
 
 generated as
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-97
+.. GENERATED FROM PYTHON SOURCE LINES 96-99
 
 .. code-block:: default
 
@@ -220,12 +222,12 @@ generated as
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-100
+.. GENERATED FROM PYTHON SOURCE LINES 100-102
 
 We needed to specify :code:`n_fermion = 4` because the
 :code:`edrixs.build_opers` function can also make two fermion terms.
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-108
+.. GENERATED FROM PYTHON SOURCE LINES 104-110
 
 Diagonalize the matrix
 ------------------------------------------------------------------------------
@@ -234,7 +236,7 @@ For a small problem such as this it is convenient to use the native
 :code:`e` and eignvectors :code:`v` where eigenvalue :code:`e[i]` corresponds
 to eigenvector :code:`v[:,i]`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-113
+.. GENERATED FROM PYTHON SOURCE LINES 110-115
 
 .. code-block:: default
 
@@ -258,7 +260,7 @@ to eigenvector :code:`v[:,i]`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-121
+.. GENERATED FROM PYTHON SOURCE LINES 116-123
 
 Computing expectation values
 ------------------------------------------------------------------------------
@@ -268,7 +270,7 @@ and total :math:`\mathbf{J}`, angular momentum. We first load the relevant
 matrices for these quantities for a `p` atomic shell.  We need to specify
 that we would like to include spin when loading the orbital operator.
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-125
+.. GENERATED FROM PYTHON SOURCE LINES 123-127
 
 .. code-block:: default
 
@@ -283,11 +285,11 @@ that we would like to include spin when loading the orbital operator.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 126-127
+.. GENERATED FROM PYTHON SOURCE LINES 128-129
 
 We again transform these matrices to our Fock basis to build the operators
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-131
+.. GENERATED FROM PYTHON SOURCE LINES 129-133
 
 .. code-block:: default
 
@@ -302,7 +304,7 @@ We again transform these matrices to our Fock basis to build the operators
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 132-141
+.. GENERATED FROM PYTHON SOURCE LINES 134-143
 
 Recall that quantum mechanics forbids us from knowing all three Cartesian
 components of angular momentum at once, so we want to compute the squares of
@@ -314,7 +316,7 @@ these operators i.e.
        \mathbf{J}^2 = J^2_x + J^2_y + J^2_z
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 141-145
+.. GENERATED FROM PYTHON SOURCE LINES 143-147
 
 .. code-block:: default
 
@@ -329,13 +331,13 @@ these operators i.e.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-149
+.. GENERATED FROM PYTHON SOURCE LINES 148-151
 
 Remember that the eigenvalues of :math:`\mathbf{S}^2` are in the form
 :math:`S(S+1)` etc. and that they can be obtained by calculating the
 projection of the operators onto our eigenvectors.
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-152
+.. GENERATED FROM PYTHON SOURCE LINES 151-154
 
 .. code-block:: default
 
@@ -349,12 +351,12 @@ projection of the operators onto our eigenvectors.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-155
+.. GENERATED FROM PYTHON SOURCE LINES 155-157
 
 We can determine the degeneracy of the eigenvalues numerically and print out
 the values as follows
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-163
+.. GENERATED FROM PYTHON SOURCE LINES 157-165
 
 .. code-block:: default
 
@@ -396,7 +398,7 @@ the values as follows
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 164-173
+.. GENERATED FROM PYTHON SOURCE LINES 166-175
 
 We see :math:`S=0` and :math:`S=1` states coming from the
 two combinations of the spin 1/2 particles. :math:`L` can take values of
@@ -408,13 +410,13 @@ Since these particles are fermions, the
 overall state must be antisymmetric, which dictates the allowed combinations
 of :math:`S` and :math:`L`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 175-178
+.. GENERATED FROM PYTHON SOURCE LINES 177-180
 
 Energy level diagram
 ------------------------------------------------------------------------------
 Let us show our findings graphically
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-198
+.. GENERATED FROM PYTHON SOURCE LINES 180-200
 
 .. code-block:: default
 
@@ -449,13 +451,13 @@ Let us show our findings graphically
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-202
+.. GENERATED FROM PYTHON SOURCE LINES 201-204
 
 We see Hund's rules in action! Rule 1 says that the highest spin :math:`S=1`
 state has the lowest energy. Of the two :math:`S=0` states, the state with
 larger :math:`L=1` is lower energy following rule 2.
 
-.. GENERATED FROM PYTHON SOURCE LINES 204-211
+.. GENERATED FROM PYTHON SOURCE LINES 206-213
 
 Spin orbit coupling
 ------------------------------------------------------------------------------
@@ -465,7 +467,7 @@ and add to the prior Hamiltonian. To make things easy, let us make the SOC
 small so that the LS coupling approximation is valid and we can
 still track the states.
 
-.. GENERATED FROM PYTHON SOURCE LINES 211-215
+.. GENERATED FROM PYTHON SOURCE LINES 213-217
 
 .. code-block:: default
 
@@ -480,11 +482,11 @@ still track the states.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 216-217
+.. GENERATED FROM PYTHON SOURCE LINES 218-219
 
 Then, we redo the diagonalization and print the results.
 
-.. GENERATED FROM PYTHON SOURCE LINES 217-231
+.. GENERATED FROM PYTHON SOURCE LINES 219-233
 
 .. code-block:: default
 
@@ -534,11 +536,11 @@ Then, we redo the diagonalization and print the results.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 232-233
+.. GENERATED FROM PYTHON SOURCE LINES 234-235
 
 and we make an equivalent energy level diagram.
 
-.. GENERATED FROM PYTHON SOURCE LINES 233-253
+.. GENERATED FROM PYTHON SOURCE LINES 235-255
 
 .. code-block:: default
 
@@ -573,7 +575,7 @@ and we make an equivalent energy level diagram.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 254-258
+.. GENERATED FROM PYTHON SOURCE LINES 256-260
 
 It is clear that we have split the :math:`S=1` state, which branches into
 three states from :math:`J=|L-S|, |L-S|+1, ..., |L+S|`. Since the shell is
@@ -583,7 +585,7 @@ states have the lower energies.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  0.198 seconds)
+   **Total running time of the script:** ( 0 minutes  0.194 seconds)
 
 
 .. _sphx_glr_download_auto_examples_example_0_ed_calculator.py:
